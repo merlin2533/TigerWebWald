@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block titel %}Räumlichkeiten{% endblock %}
+
+{% block inhalt %}
+<section class="seiten-header">
+    <div class="container">
+        <span class="sektion-label aufdecken">Unsere Räume</span>
+        <h1 class="aufdecken">Räumlichkeiten</h1>
+        <p class="text-gross aufdecken">Im Dachgeschoss des historischen Alten Notariats stehen liebevoll gestaltete und funktional eingerichtete Räume zur Verfügung.</p>
+    </div>
+</section>
+
+{% set raum_beschreibungen = {
+    'spielzimmer': 'Ein großzügiges Spielzimmer mit Kinderküche, Bauecke und Leseecke — für Rollenspiele, Konstruktion und gemeinsames Entdecken.',
+    'bewegungsraum': 'Nestschaukel, Bällebad und Bewegungslandschaft laden zum Toben ein. Zur Mittagszeit wird der Raum zum gemütlichen Schlafraum.',
+    'schlafraum': 'Jedes Kind hat seinen eigenen festen Schlafplatz für die Mittagsruhe — in einer ruhigen und geborgenen Atmosphäre.',
+    'garderobe': 'Jedes Kind hat seinen eigenen Platz für Jacke, Schuhe und Rucksack. Die Garderobe fördert Selbstständigkeit beim An- und Ausziehen.',
+    'essbereich': 'Am großen Esstisch werden die Mahlzeiten gemeinsam eingenommen. Frisch, ausgewogen und abwechslungsreich — täglich frisch zubereitet.',
+    'kueche': 'In unserer vollausgestatteten Küche bereiten wir täglich frische, ausgewogene Mahlzeiten zu — mit vollständigem Überblick über den Essbereich.',
+    'wickelbereich': 'Kindgerecht ausgestattet mit Wickelplatz, Trittleiter, persönlichen Fächern und Waschbecken in Kinderhöhe.'
+} %}
+
+<section class="sektion sektion--hell">
+    <div class="container">
+        {% for schluessel, bilder_liste in kategorien.items() %}
+        <div class="raum-sektion aufdecken">
+            <div class="raum-header">
+                <h2>{{ kategorie_namen.get(schluessel, schluessel) }}</h2>
+                <p>{{ raum_beschreibungen.get(schluessel, '') }}</p>
+            </div>
+            <div class="galerie-grid galerie-grid--{{ bilder_liste|length }}">
+                {% for bild in bilder_liste %}
+                <div class="galerie-item" data-vollbild="{{ url_for('static', filename=bild_pfad(bild.dateiname)) }}">
+                    <img src="{{ url_for('static', filename=bild_pfad(bild.dateiname)) }}"
+                         alt="{{ bild.alt_text }}"
+                         loading="lazy">
+                    <div class="galerie-overlay">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                            <path d="M11 8v6M8 11h6"/>
+                        </svg>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-schliessen" aria-label="Schließen">&times;</button>
+    <img src="" alt="" id="lightbox-bild">
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entenbach Tiger - Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach. Liebevolle U3-Betreuung mit 9 Plätzen.">
+    <meta name="keywords" content="Kindertagespflege, Walddorfhäslach, U3, Kinderkrippe, Entenbach Tiger, Tagesmutter, Reutlingen">
+    <title>{% block titel %}Entenbach Tiger{% endblock %} | Kindertagespflege Walddorfhäslach</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="site-header" id="site-header">
+        <nav class="nav-container">
+            <a href="{{ url_for('startseite') }}" class="nav-logo">
+                <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Entenbach Tiger Logo" loading="lazy">
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="{{ url_for('startseite') }}" class="nav-link {% if request.endpoint == 'startseite' %}aktiv{% endif %}">Start</a></li>
+                <li><a href="{{ url_for('ueber_uns') }}" class="nav-link {% if request.endpoint == 'ueber_uns' %}aktiv{% endif %}">Über uns</a></li>
+                <li><a href="{{ url_for('raeumlichkeiten') }}" class="nav-link {% if request.endpoint == 'raeumlichkeiten' %}aktiv{% endif %}">Räumlichkeiten</a></li>
+                <li><a href="{{ url_for('konzept') }}" class="nav-link {% if request.endpoint == 'konzept' %}aktiv{% endif %}">Konzept</a></li>
+                <li><a href="{{ url_for('kontakt') }}" class="nav-link nav-link--cta {% if request.endpoint == 'kontakt' %}aktiv{% endif %}">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+        {% for kategorie, nachricht in messages %}
+        <div class="flash flash--{{ kategorie }}">{{ nachricht }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Hauptinhalt -->
+    <main>
+        {% block inhalt %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,40 C360,100 720,0 1080,60 C1260,90 1380,40 1440,50 L1440,100 L0,100 Z" fill="var(--farbe-creme)"/>
+            </svg>
+        </div>
+        <div class="footer-inhalt">
+            <div class="footer-grid">
+                <div class="footer-spalte">
+                    <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Entenbach Tiger" class="footer-logo" loading="lazy">
+                    <p class="footer-claim">Kindertagespflege im<br>historischen Fachwerkhaus</p>
+                </div>
+                <div class="footer-spalte">
+                    <h4>Kontakt</h4>
+                    <p>
+                        <a href="tel:{{ get_inhalt('kontakt', 'telefon', '07127/9266-850') }}">{{ get_inhalt('kontakt', 'telefon', '07127/9266-850') }}</a><br>
+                        <a href="mailto:{{ get_inhalt('kontakt', 'email', 'info@entenbachtiger.de') }}">{{ get_inhalt('kontakt', 'email', 'info@entenbachtiger.de') }}</a>
+                    </p>
+                </div>
+                <div class="footer-spalte">
+                    <h4>Adresse</h4>
+                    <p>{{ get_inhalt('kontakt', 'adresse', 'Brühlstr. 272, 72141 Walddorfhäslach') }}</p>
+                </div>
+                <div class="footer-spalte">
+                    <h4>Seiten</h4>
+                    <ul>
+                        <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
+                        <li><a href="{{ url_for('ueber_uns') }}">Über uns</a></li>
+                        <li><a href="{{ url_for('raeumlichkeiten') }}">Räumlichkeiten</a></li>
+                        <li><a href="{{ url_for('konzept') }}">Konzept</a></li>
+                        <li><a href="{{ url_for('kontakt') }}">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-unten">
+                <p>&copy; 2025 Entenbach Tiger &mdash; Kindertagespflege Walddorfhäslach</p>
+                <p class="footer-verein">Angeschlossen an den Tagesmutterverein Reutlingen</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Entenbach Tiger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <h1>Entenbach Tiger — Admin</h1>
+        <div>
+            <a href="{{ url_for('startseite') }}" target="_blank">Website ansehen</a>
+            &nbsp;&middot;&nbsp;
+            <a href="{{ url_for('admin_passwort') }}">Passwort ändern</a>
+            &nbsp;&middot;&nbsp;
+            <a href="{{ url_for('admin_logout') }}">Abmelden</a>
+        </div>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+        {% for kategorie, nachricht in messages %}
+        <div class="flash flash--{{ kategorie }}">{{ nachricht }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="admin-container">
+        <!-- Texte bearbeiten -->
+        <div class="admin-karte">
+            <h2>Texte bearbeiten</h2>
+            <p style="margin-bottom: 20px; color: var(--farbe-text-leicht);">Wählen Sie eine Seite, um deren Texte zu bearbeiten.</p>
+            <div class="admin-link-grid">
+                {% for seite in seiten %}
+                <a href="{{ url_for('admin_inhalte', seite=seite.seite) }}" class="admin-link-karte">
+                    {% if seite.seite == 'startseite' %}Startseite
+                    {% elif seite.seite == 'ueber_uns' %}Über uns
+                    {% elif seite.seite == 'konzept' %}Konzept
+                    {% elif seite.seite == 'kontakt' %}Kontakt
+                    {% else %}{{ seite.seite }}{% endif %}
+                    <span>Texte anpassen</span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Bilder verwalten -->
+        <div class="admin-karte">
+            <h2>Bilder verwalten</h2>
+            <p style="margin-bottom: 20px; color: var(--farbe-text-leicht);">Bilder hochladen, austauschen oder löschen. Alle Bilder werden automatisch optimiert (komprimiert und Thumbnails erstellt).</p>
+            <div class="admin-link-grid">
+                <a href="{{ url_for('admin_bilder', seite='startseite') }}" class="admin-link-karte">
+                    Startseite
+                    <span>Bilder verwalten</span>
+                </a>
+                <a href="{{ url_for('admin_bilder', seite='raeumlichkeiten') }}" class="admin-link-karte">
+                    Räumlichkeiten
+                    <span>Bilder verwalten</span>
+                </a>
+                <a href="{{ url_for('admin_bilder', seite='aussenbereich') }}" class="admin-link-karte">
+                    Außenbereich
+                    <span>Bilder verwalten</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Team bearbeiten -->
+        <div class="admin-karte">
+            <h2>Team bearbeiten</h2>
+            <p style="margin-bottom: 20px; color: var(--farbe-text-leicht);">Bearbeiten Sie die Informationen und Fotos Ihres Teams.</p>
+            <div class="admin-link-grid">
+                <a href="{{ url_for('admin_team') }}" class="admin-link-karte">
+                    Team verwalten
+                    <span>{{ team|length }} Mitglieder</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

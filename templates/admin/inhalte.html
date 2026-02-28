@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texte: {{ seite }} | Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <h1>Texte: {{ seite }}</h1>
+        <div>
+            <a href="{{ url_for('admin_dashboard') }}">← Dashboard</a>
+            &nbsp;&middot;&nbsp;
+            <a href="{{ url_for('admin_logout') }}">Abmelden</a>
+        </div>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+        {% for kategorie, nachricht in messages %}
+        <div class="flash flash--{{ kategorie }}">{{ nachricht }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="admin-container">
+        <div class="admin-karte">
+            <h2>Inhalte bearbeiten</h2>
+            <form method="POST">
+                {% for inhalt in inhalte %}
+                <div class="form-gruppe">
+                    <label for="{{ inhalt.schluessel }}">{{ inhalt.schluessel | replace('_', ' ') | title }}</label>
+                    {% if inhalt.wert | length > 100 %}
+                    <textarea id="{{ inhalt.schluessel }}" name="{{ inhalt.schluessel }}" rows="4">{{ inhalt.wert }}</textarea>
+                    {% else %}
+                    <input type="text" id="{{ inhalt.schluessel }}" name="{{ inhalt.schluessel }}" value="{{ inhalt.wert }}">
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn-admin btn-admin--primary">Speichern</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

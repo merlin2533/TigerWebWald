@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% block titel %}Pädagogisches Konzept{% endblock %}
+
+{% block inhalt %}
+<section class="seiten-header">
+    <div class="container">
+        <span class="sektion-label aufdecken">Unsere Pädagogik</span>
+        <h1 class="aufdecken">{{ inhalte.get('titel', 'Unser Pädagogisches Konzept') }}</h1>
+        <p class="text-gross aufdecken">{{ inhalte.get('intro', '') }}</p>
+    </div>
+</section>
+
+<!-- Drei Säulen -->
+<section class="sektion sektion--hell">
+    <div class="container">
+        <div class="saeulen-grid">
+            <div class="saeule aufdecken">
+                <div class="saeule-nummer">01</div>
+                <div class="saeule-icon">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--farbe-gelb)" stroke-width="1.5">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <h3>{{ inhalte.get('bindung_titel', 'Sichere Bindung') }}</h3>
+                <p>{{ inhalte.get('bindung_text', '') }}</p>
+            </div>
+            <div class="saeule aufdecken">
+                <div class="saeule-nummer">02</div>
+                <div class="saeule-icon">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--farbe-blau)" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>{{ inhalte.get('struktur_titel', 'Rituale & Strukturen') }}</h3>
+                <p>{{ inhalte.get('struktur_text', '') }}</p>
+            </div>
+            <div class="saeule aufdecken">
+                <div class="saeule-nummer">03</div>
+                <div class="saeule-icon">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--farbe-blau-hell)" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>{{ inhalte.get('selbststaendigkeit_titel', 'Selbstständigkeit') }}</h3>
+                <p>{{ inhalte.get('selbststaendigkeit_text', '') }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Eingewöhnung -->
+<section class="sektion sektion--akzent">
+    <div class="container">
+        <div class="eingewoehnung-grid">
+            <div class="aufdecken">
+                <span class="sektion-label">Berliner Modell</span>
+                <h2>{{ inhalte.get('eingewoehnung_titel', 'Sanfte Eingewöhnung') }}</h2>
+                <p class="text-gross">{{ inhalte.get('eingewoehnung_text', '') }}</p>
+            </div>
+            <div class="eingewoehnung-phasen aufdecken">
+                <div class="phase">
+                    <div class="phase-nummer">1</div>
+                    <div>
+                        <h4>Grundphase</h4>
+                        <p>In den ersten Tagen begleitet ein Elternteil das Kind. Es lernt erste Abläufe und Rituale kennen.</p>
+                    </div>
+                </div>
+                <div class="phase">
+                    <div class="phase-nummer">2</div>
+                    <div>
+                        <h4>Erste Trennung</h4>
+                        <p>Etwa am 3.–4. Tag erfolgt ein erster kurzer Trennungsversuch. Die Reaktion des Kindes bestimmt das weitere Vorgehen.</p>
+                    </div>
+                </div>
+                <div class="phase">
+                    <div class="phase-nummer">3</div>
+                    <div>
+                        <h4>Stabilisierung</h4>
+                        <p>Die Betreuungszeit wird schrittweise ausgeweitet — gemeinsam essen, spielen und schlafen.</p>
+                    </div>
+                </div>
+                <div class="phase">
+                    <div class="phase-nummer">4</div>
+                    <div>
+                        <h4>Abschluss</h4>
+                        <p>Ihr Kind hat eine tragfähige Beziehung aufgebaut und fühlt sich bei uns sicher und geborgen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tagesablauf -->
+<section class="sektion sektion--hell">
+    <div class="container">
+        <div class="text-mitte">
+            <span class="sektion-label aufdecken">Ein Tag bei uns</span>
+            <h2 class="aufdecken">Unser Tagesablauf</h2>
+        </div>
+        <div class="tagesablauf aufdecken">
+            <div class="tag-eintrag">
+                <div class="tag-zeit">07:30 – 08:30</div>
+                <div class="tag-inhalt">
+                    <h4>Bringzeit & Freispiel</h4>
+                    <p>Ankommen, begrüßen und in den Tag starten.</p>
+                </div>
+            </div>
+            <div class="tag-eintrag">
+                <div class="tag-zeit">08:45 – 09:30</div>
+                <div class="tag-inhalt">
+                    <h4>Gemeinsames Frühstück</h4>
+                    <p>Frisch zubereitetes Frühstück am großen Esstisch.</p>
+                </div>
+            </div>
+            <div class="tag-eintrag">
+                <div class="tag-zeit">09:30 – 11:00</div>
+                <div class="tag-inhalt">
+                    <h4>Freispiel & Angebote</h4>
+                    <p>Kreative Projekte, Gartenzeit oder freies Spielen.</p>
+                </div>
+            </div>
+            <div class="tag-eintrag">
+                <div class="tag-zeit">11:15 – 11:30</div>
+                <div class="tag-inhalt">
+                    <h4>Kinderkreis</h4>
+                    <p>Lieder, Fingerspiele und thematische Einheiten.</p>
+                </div>
+            </div>
+            <div class="tag-eintrag">
+                <div class="tag-zeit">11:30 – 12:15</div>
+                <div class="tag-inhalt">
+                    <h4>Mittagessen</h4>
+                    <p>Gemeinsame Mahlzeit — frisch, ausgewogen, abwechslungsreich.</p>
+                </div>
+            </div>
+            <div class="tag-eintrag">
+                <div class="tag-zeit">12:45 – 14:00</div>
+                <div class="tag-inhalt">
+                    <h4>Mittagsschlaf</h4>
+                    <p>Jedes Kind hat seinen eigenen festen Schlafplatz.</p>
+                </div>
+            </div>
+            <div class="tag-eintrag">
+                <div class="tag-zeit">14:00 – 15:00</div>
+                <div class="tag-inhalt">
+                    <h4>Nachmittag</h4>
+                    <p>Freies Spiel und Gartenzeit (Mo–Do).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Außenbereich -->
+<section class="sektion sektion--akzent">
+    <div class="container">
+        <div class="aussen-grid">
+            <div class="aufdecken">
+                <span class="sektion-label">Draußen spielen</span>
+                <h2>Unser Außenbereich</h2>
+                <p class="text-gross">Der vollständig eingezäunte Garten bietet Raum für Bewegung, Entdeckung und freies Spiel.</p>
+                <ul class="ausstattung-liste">
+                    <li>Sandkasten</li>
+                    <li>Bauchschaukel</li>
+                    <li>Rutsche</li>
+                    <li>Matschküche</li>
+                    <li>Bobbycars & Fahrzeuge</li>
+                    <li>Geräumiger Bollerwagen für Ausflüge</li>
+                </ul>
+            </div>
+            <div class="aussen-bilder aufdecken">
+                {% for bild in get_bilder('aussenbereich', 'garten') %}
+                <img src="{{ url_for('static', filename=bild_pfad(bild.dateiname)) }}" alt="{{ bild.alt_text }}" loading="lazy">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

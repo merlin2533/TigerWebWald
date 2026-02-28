@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team | Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <h1>Team verwalten</h1>
+        <div>
+            <a href="{{ url_for('admin_dashboard') }}">← Dashboard</a>
+            &nbsp;&middot;&nbsp;
+            <a href="{{ url_for('admin_logout') }}">Abmelden</a>
+        </div>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+        {% for kategorie, nachricht in messages %}
+        <div class="flash flash--{{ kategorie }}">{{ nachricht }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="admin-container">
+        <!-- Texte bearbeiten -->
+        <div class="admin-karte">
+            <h2>Team-Informationen</h2>
+            <form method="POST">
+                <input type="hidden" name="aktion" value="aktualisieren">
+                {% for mitglied in team %}
+                <div class="admin-team-karte">
+                    <h3>{{ mitglied.name }}</h3>
+                    <div class="form-gruppe">
+                        <label>Name</label>
+                        <input type="text" name="name_{{ mitglied.id }}" value="{{ mitglied.name }}">
+                    </div>
+                    <div class="form-gruppe">
+                        <label>Rolle</label>
+                        <input type="text" name="rolle_{{ mitglied.id }}" value="{{ mitglied.rolle }}">
+                    </div>
+                    <div class="form-gruppe">
+                        <label>Beschreibung</label>
+                        <textarea name="beschreibung_{{ mitglied.id }}" rows="3">{{ mitglied.beschreibung }}</textarea>
+                    </div>
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn-admin btn-admin--primary">Alle speichern</button>
+            </form>
+        </div>
+
+        <!-- Fotos hochladen -->
+        <div class="admin-karte">
+            <h2>Team-Fotos</h2>
+            <p style="margin-bottom: 20px; color: var(--farbe-text-leicht); font-size: 0.9rem;">
+                Laden Sie ein Foto für jedes Teammitglied hoch. Bilder werden automatisch optimiert.
+            </p>
+            {% for mitglied in team %}
+            <div class="admin-team-karte" style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+                <div style="flex-shrink: 0;">
+                    {% if mitglied.bild %}
+                    <img src="{{ url_for('static', filename='uploads/' + mitglied.bild) }}" alt="{{ mitglied.name }}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+                    {% else %}
+                    <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--farbe-gelb-hell); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 2rem; color: var(--farbe-blau-hell); opacity: 0.4;">?</span>
+                    </div>
+                    {% endif %}
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h3 style="margin-bottom: 8px;">{{ mitglied.name }}</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="aktion" value="bild_hochladen">
+                        <input type="hidden" name="mitglied_id" value="{{ mitglied.id }}">
+                        <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                            <input type="file" name="bild" accept="image/*" required style="flex: 1; min-width: 150px;">
+                            <button type="submit" class="btn-admin btn-admin--primary btn-admin--klein">Hochladen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

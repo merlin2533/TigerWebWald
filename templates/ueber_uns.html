@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block titel %}Über uns{% endblock %}
+
+{% block inhalt %}
+<!-- Page Header -->
+<section class="seiten-header">
+    <div class="container">
+        <span class="sektion-label aufdecken">Wer wir sind</span>
+        <h1 class="aufdecken">{{ inhalte.get('titel', 'Über die Entenbach Tiger') }}</h1>
+    </div>
+</section>
+
+<!-- Über uns Text -->
+<section class="sektion sektion--hell">
+    <div class="container">
+        <div class="ueber-grid">
+            <div class="ueber-text aufdecken">
+                <p class="text-gross">{{ inhalte.get('text_1', '') }}</p>
+                <p>{{ inhalte.get('text_2', '') }}</p>
+            </div>
+            <div class="ueber-bild aufdecken">
+                <img src="{{ url_for('static', filename='images/Haus.jpg') }}" alt="Altes Notariat in Walddorfhäslach" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Öffnungszeiten -->
+<section class="sektion sektion--akzent">
+    <div class="container text-mitte">
+        <h2 class="aufdecken">Öffnungszeiten & Betreuungsmodelle</h2>
+        <div class="zeiten-grid aufdecken">
+            <div class="zeiten-karte">
+                <div class="zeiten-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>Modell 1</h3>
+                <p class="zeiten-plaetze">5 Plätze</p>
+                <p>{{ inhalte.get('oeffnungszeiten_1', 'Montag–Donnerstag 07:30–15:00 Uhr, Freitag 07:30–12:30 Uhr') }}</p>
+            </div>
+            <div class="zeiten-karte">
+                <div class="zeiten-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>Modell 2</h3>
+                <p class="zeiten-plaetze">4 Plätze</p>
+                <p>{{ inhalte.get('oeffnungszeiten_2', 'Montag–Freitag 07:30–12:30 Uhr') }}</p>
+            </div>
+        </div>
+        <p class="aufdecken text-klein">Die betreuungsfreie Zeit umfasst 30 Urlaubstage pro Jahr. Die Urlaubsplanung wird spätestens bis zum 31.12. des Vorjahres bekannt gegeben.</p>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="sektion sektion--hell" id="team">
+    <div class="container">
+        <div class="text-mitte">
+            <span class="sektion-label aufdecken">Das Tiger-Team</span>
+            <h2 class="aufdecken">Unsere pädagogischen Fachkräfte</h2>
+            <p class="text-gross aufdecken">Drei engagierte Fachkräfte, die Ihr Kind mit Herz und Kompetenz begleiten.</p>
+        </div>
+        <div class="team-grid">
+            {% for mitglied in team %}
+            <div class="team-karte aufdecken">
+                <div class="team-bild">
+                    {% if mitglied.bild %}
+                    <img src="{{ url_for('static', filename='uploads/' + mitglied.bild) }}" alt="{{ mitglied.name }}" loading="lazy">
+                    {% else %}
+                    <div class="team-avatar">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="team-info">
+                    <h3>{{ mitglied.name }}</h3>
+                    <span class="team-rolle">{{ mitglied.rolle }}</span>
+                    <p>{{ mitglied.beschreibung }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

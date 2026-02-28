@@ -1,0 +1,4 @@
+__pycache__/
+tiger.db
+static/uploads/
+*.pyc

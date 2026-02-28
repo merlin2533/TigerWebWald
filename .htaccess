@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteBase /
 
 # Statische Dateien direkt durchlassen
 RewriteCond %{REQUEST_URI} ^/static/ [OR]

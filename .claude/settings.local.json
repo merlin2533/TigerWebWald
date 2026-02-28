@@ -10,7 +10,10 @@
       "Bash(pip install:*)",
       "Bash(pip show:*)",
       "Bash(timeout:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nEntenbach Tiger Website - Initiale Version\n\nFlask-basierte Website fuer die Kindertagespflege mit:\n- 5 oeffentliche Seiten \\(Start, Ueber uns, Raeumlichkeiten, Konzept, Kontakt\\)\n- Admin-Bereich mit SQLite \\(Texte, Bilder, Team verwalten\\)\n- Bildoptimierung mit Pillow \\(Resize, Thumbnails, Kompression\\)\n- Responsive Design \\(Mobile-First\\)\n- Scroll-Animationen\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

@@ -3,8 +3,18 @@
  * Entenbach Tiger - Oeffentliche Seiten (Router).
  */
 
+// Fehler anzeigen falls Datenbank oder Extensions fehlen
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/auth.php';
+
+// Datenbank automatisch erstellen falls nicht vorhanden
+if (!file_exists(DB_PATH)) {
+    require_once __DIR__ . '/init_db.php';
+}
 
 $seite = $_GET['seite'] ?? 'startseite';
 

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin.php
+Disallow: /tiger.db
+Disallow: /check.php
+Disallow: /init_db.php
+
+Sitemap: /sitemap.xml

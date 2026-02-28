@@ -6,7 +6,7 @@
     </div>
     <div class="hero-inhalt">
         <img src="/static/images/Logo.jpg" alt="Entenbach TigeR Logo" class="hero-logo aufdecken">
-        <h1 class="aufdecken"><?= e($inhalte['hero_titel'] ?? 'Willkommen bei den Entenbach TigeRn') ?></h1>
+        <h1 class="aufdecken"><?= e($inhalte['hero_titel'] ?? 'Willkommen beim EntenbachTigeR') ?></h1>
         <p class="hero-untertitel aufdecken"><?= e($inhalte['hero_untertitel'] ?? 'Kindertagespflege im historischen Fachwerkhaus') ?></p>
         <a href="/kontakt" class="btn btn--primary aufdecken">Jetzt Kennenlernen</a>
     </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="zahl-box aufdecken">
                         <span class="zahl">3</span>
-                        <span class="zahl-label">Pädagogische Fachkräfte</span>
+                        <span class="zahl-label">Tagespflege&shy;personen</span>
                     </div>
                     <div class="zahl-box aufdecken">
                         <span class="zahl">U3</span>
@@ -44,9 +44,9 @@
             </div>
             <div class="intro-bilder aufdecken">
                 <div class="bild-collage">
-                    <img src="/static/images/Raum1.jpg" alt="Spielzimmer" class="collage-1" loading="lazy">
-                    <img src="/static/images/Essbereich.jpg" alt="Essbereich" class="collage-2" loading="lazy">
-                    <img src="/static/images/Aueßen1.jpg" alt="Außenbereich" class="collage-3" loading="lazy">
+                    <img src="/static/images/Raum1.jpg" alt="Spielzimmer" class="collage-1" loading="lazy" decoding="async">
+                    <img src="/static/images/Essbereich.jpg" alt="Essbereich" class="collage-2" loading="lazy" decoding="async">
+                    <img src="/static/images/Aueßen1.jpg" alt="Außenbereich" class="collage-3" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>

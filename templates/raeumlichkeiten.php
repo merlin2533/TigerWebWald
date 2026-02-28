@@ -30,7 +30,7 @@ $raum_beschreibungen = [
                 <div class="galerie-item" data-vollbild="/<?= e(bild_pfad($bild['dateiname'])) ?>">
                     <img src="/<?= e(bild_pfad($bild['dateiname'])) ?>"
                          alt="<?= e($bild['alt_text']) ?>"
-                         loading="lazy">
+                         loading="lazy" decoding="async">
                     <div class="galerie-overlay">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>

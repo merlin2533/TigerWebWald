@@ -75,21 +75,21 @@ def init():
     team = [
         (
             "Verena Schall",
-            "Paedagogische Fachkraft",
+            "Tagespflegeperson",
             "Verena begleitet die Kinder mit viel Herz und Erfahrung. Als ausgebildete Erzieherin liegt ihr besonders die individuelle Foerderung jedes Kindes am Herzen. Mit ihrer warmherzigen Art schafft sie eine Atmosphaere, in der sich die Kleinen sicher und geborgen fuehlen.",
             "",
             1,
         ),
         (
             "Melanie Cerny",
-            "Paedagogische Fachkraft",
+            "Tagespflegeperson",
             "Melanie bringt Kreativitaet und Lebensfreude in den Alltag der Kinder. Ob beim gemeinsamen Basteln, Singen oder Entdecken der Natur \u2013 sie versteht es, die Neugier der Kinder zu wecken und sie in ihrer Entwicklung liebevoll zu unterstuetzen.",
             "",
             2,
         ),
         (
             "Sandra Rein",
-            "Paedagogische Fachkraft",
+            "Tagespflegeperson",
             "Sandra ist die ruhige Kraft im Team. Mit Geduld und Einfuehlungsvermoegen begleitet sie besonders die Eingewoehnung neuer Kinder. Ihr liegt ein strukturierter Tagesablauf am Herzen, der den Kindern Sicherheit und Orientierung gibt.",
             "",
             3,
@@ -104,7 +104,7 @@ def init():
     # Seiteninhalte
     inhalte = [
         # Startseite
-        ("startseite", "hero_titel", "Willkommen bei den Entenbach Tigern", "text"),
+        ("startseite", "hero_titel", "Willkommen beim EntenbachTigeR", "text"),
         (
             "startseite",
             "hero_untertitel",
@@ -114,7 +114,7 @@ def init():
         (
             "startseite",
             "intro_text",
-            "Im Herzen von Walddorf, im wundersch\u00f6nen Alten Notariat, bieten wir 9 Betreuungspl\u00e4tze f\u00fcr Kinder unter 3 Jahren. Unser erfahrenes Team aus drei p\u00e4dagogischen Fachkr\u00e4ften begleitet Ihr Kind mit Herz, Kompetenz und viel Freude durch den Tag.",
+            "Im Herzen von Walddorf, im wundersch\u00f6nen Alten Notariat, bieten wir 9 Betreuungspl\u00e4tze f\u00fcr Kinder unter 3 Jahren. Unser erfahrenes Team aus drei Tagespflegepersonen begleitet Ihr Kind mit Herz, Kompetenz und viel Freude durch den Tag.",
             "text",
         ),
         (
@@ -233,7 +233,7 @@ def init():
         (
             "kontakt",
             "adresse",
-            "Br\u00fchlstr. 272, 72141 Walddorfh\u00e4slach",
+            "Br\u00fchlstra\u00dfe 2, 72141 Walddorfh\u00e4slach",
             "text",
         ),
     ]

@@ -1734,3 +1734,112 @@ ul { list-style: none; }
         grid-template-columns: 1fr;
     }
 }
+
+/* ===========================
+   404-Fehlerseite
+   =========================== */
+.fehler-seite {
+    padding: 40px 0;
+}
+
+.fehler-code {
+    font-family: var(--schrift-display);
+    font-size: clamp(6rem, 15vw, 12rem);
+    font-weight: 800;
+    color: var(--farbe-gelb);
+    line-height: 1;
+    margin-bottom: 24px;
+    opacity: 0.3;
+}
+
+/* ===========================
+   Text-Seiten (Impressum, Datenschutz)
+   =========================== */
+.text-seite h2 {
+    color: var(--farbe-blau);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+}
+
+.text-seite h2:first-child {
+    margin-top: 0;
+}
+
+.text-seite h3 {
+    color: var(--farbe-blau);
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.text-seite p {
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+.text-seite ul {
+    margin: 12px 0;
+    padding-left: 24px;
+}
+
+.text-seite ul li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+/* ===========================
+   Footer Legal
+   =========================== */
+.footer-legal {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.footer-legal a {
+    color: var(--farbe-creme);
+    text-decoration: underline;
+}
+
+.footer-legal a:hover {
+    opacity: 0.8;
+}
+
+/* ===========================
+   Cookie-Banner
+   =========================== */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--farbe-blau);
+    color: var(--farbe-creme);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 9999;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    font-size: 0.9rem;
+}
+
+.cookie-banner p {
+    margin: 0;
+}
+
+.btn--klein {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 20px;
+    }
+}

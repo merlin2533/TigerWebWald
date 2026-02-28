@@ -53,7 +53,7 @@
                         height="350"
                         style="border:0; border-radius: 12px;"
                         allowfullscreen=""
-                        loading="lazy"
+                        loading="lazy" decoding="async"
                         referrerpolicy="no-referrer-when-downgrade"
                         title="Standort Entenbach TigeR">
                     </iframe>

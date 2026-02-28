@@ -1,12 +1,46 @@
 RewriteEngine On
 RewriteBase /
 
-# Statische Dateien direkt durchlassen
+# --- GZIP-Kompression ---
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Browser-Caching ---
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 week"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType font/woff2 "access plus 1 month"
+    ExpiresByType application/font-woff2 "access plus 1 month"
+</IfModule>
+
+# --- Security-Headers ---
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# --- Statische Dateien direkt durchlassen ---
 RewriteCond %{REQUEST_URI} ^/static/ [OR]
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# Admin-Routen
+# --- SEO-Dateien ---
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+RewriteRule ^\.well-known/llm\.txt$ llm.txt [L]
+
+# --- Admin-Routen ---
 RewriteRule ^admin/login$ admin.php?aktion=login [L,QSA]
 RewriteRule ^admin/logout$ admin.php?aktion=logout [L,QSA]
 RewriteRule ^admin/inhalte/(.+)$ admin.php?aktion=inhalte&seite=$1 [L,QSA]
@@ -16,14 +50,22 @@ RewriteRule ^admin/team$ admin.php?aktion=team [L,QSA]
 RewriteRule ^admin/passwort$ admin.php?aktion=passwort [L,QSA]
 RewriteRule ^admin/?$ admin.php?aktion=dashboard [L,QSA]
 
-# Oeffentliche Seiten
+# --- Oeffentliche Seiten ---
 RewriteRule ^ueber-uns$ index.php?seite=ueber-uns [L,QSA]
 RewriteRule ^raeumlichkeiten$ index.php?seite=raeumlichkeiten [L,QSA]
 RewriteRule ^konzept$ index.php?seite=konzept [L,QSA]
 RewriteRule ^kontakt$ index.php?seite=kontakt [L,QSA]
+RewriteRule ^impressum$ index.php?seite=impressum [L,QSA]
+RewriteRule ^datenschutz$ index.php?seite=datenschutz [L,QSA]
 RewriteRule ^$ index.php?seite=startseite [L,QSA]
 
-# SQLite-Datenbank schuetzen
+# --- Sensible Dateien schuetzen ---
 <Files "tiger.db">
     Require all denied
 </Files>
+<FilesMatch "\.(db|sqlite|log|ini)$">
+    Require all denied
+</FilesMatch>
+
+# --- Fehlerseite ---
+ErrorDocument 404 /index.php?seite=404

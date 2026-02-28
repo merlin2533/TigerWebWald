@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimationen();
     initLightbox();
     initFlashMessages();
+    initCookieBanner();
 });
 
 /* --- Navigation --- */
@@ -129,5 +130,22 @@ function initFlashMessages() {
             flash.style.transform = 'translateX(40px)';
             setTimeout(() => flash.remove(), 400);
         }, 4000);
+    });
+}
+
+/* --- Cookie-Banner --- */
+function initCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    const ok = document.getElementById('cookie-ok');
+    if (!banner || !ok) return;
+
+    // Nur anzeigen wenn noch nicht akzeptiert
+    if (!localStorage.getItem('cookie_ok')) {
+        banner.hidden = false;
+    }
+
+    ok.addEventListener('click', () => {
+        localStorage.setItem('cookie_ok', '1');
+        banner.hidden = true;
     });
 }

@@ -63,9 +63,9 @@ $stmt->execute(['admin', $pw_hash]);
 
 // Team-Mitglieder
 $team = [
-    ['Verena Schall', 'Pädagogische Fachkraft', 'Verena begleitet die Kinder mit viel Herz und Erfahrung. Als ausgebildete Erzieherin liegt ihr besonders die individuelle Förderung jedes Kindes am Herzen. Mit ihrer warmherzigen Art schafft sie eine Atmosphäre, in der sich die Kleinen sicher und geborgen fühlen.', '', 1],
-    ['Melanie Cerny', 'Pädagogische Fachkraft', 'Melanie bringt Kreativität und Lebensfreude in den Alltag der Kinder. Ob beim gemeinsamen Basteln, Singen oder Entdecken der Natur – sie versteht es, die Neugier der Kinder zu wecken und sie in ihrer Entwicklung liebevoll zu unterstützen.', '', 2],
-    ['Sandra Rein', 'Pädagogische Fachkraft', 'Sandra ist die ruhige Kraft im Team. Mit Geduld und Einfühlungsvermögen begleitet sie besonders die Eingewöhnung neuer Kinder. Ihr liegt ein strukturierter Tagesablauf am Herzen, der den Kindern Sicherheit und Orientierung gibt.', '', 3],
+    ['Verena Schall', 'Tagespflegeperson', 'Verena begleitet die Kinder mit viel Herz und Erfahrung. Als ausgebildete Erzieherin liegt ihr besonders die individuelle Förderung jedes Kindes am Herzen. Mit ihrer warmherzigen Art schafft sie eine Atmosphäre, in der sich die Kleinen sicher und geborgen fühlen.', '', 1],
+    ['Melanie Cerny', 'Tagespflegeperson', 'Melanie bringt Kreativität und Lebensfreude in den Alltag der Kinder. Ob beim gemeinsamen Basteln, Singen oder Entdecken der Natur – sie versteht es, die Neugier der Kinder zu wecken und sie in ihrer Entwicklung liebevoll zu unterstützen.', '', 2],
+    ['Sandra Rein', 'Tagespflegeperson', 'Sandra ist die ruhige Kraft im Team. Mit Geduld und Einfühlungsvermögen begleitet sie besonders die Eingewöhnung neuer Kinder. Ihr liegt ein strukturierter Tagesablauf am Herzen, der den Kindern Sicherheit und Orientierung gibt.', '', 3],
 ];
 $stmt = $pdo->prepare("INSERT OR IGNORE INTO team (name, rolle, beschreibung, bild, reihenfolge) VALUES (?, ?, ?, ?, ?)");
 foreach ($team as $t) {
@@ -75,9 +75,9 @@ foreach ($team as $t) {
 // Seiteninhalte
 $inhalte = [
     // Startseite
-    ['startseite', 'hero_titel', 'Willkommen bei den Entenbach TigeRn', 'text'],
+    ['startseite', 'hero_titel', 'Willkommen beim EntenbachTigeR', 'text'],
     ['startseite', 'hero_untertitel', 'Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach', 'text'],
-    ['startseite', 'intro_text', 'Im Herzen von Walddorf, im wunderschönen Alten Notariat, bieten wir 9 Betreuungsplätze für Kinder unter 3 Jahren. Unser erfahrenes Team aus drei pädagogischen Fachkräften begleitet Ihr Kind mit Herz, Kompetenz und viel Freude durch den Tag.', 'text'],
+    ['startseite', 'intro_text', 'Im Herzen von Walddorf, im wunderschönen Alten Notariat, bieten wir 9 Betreuungsplätze für Kinder unter 3 Jahren. Unser erfahrenes Team aus drei Tagespflegepersonen begleitet Ihr Kind mit Herz, Kompetenz und viel Freude durch den Tag.', 'text'],
     ['startseite', 'cta_text', 'Lernen Sie uns und unsere Räumlichkeiten kennen!', 'text'],
     // Ueber uns
     ['ueber_uns', 'titel', 'Über die Entenbach TigeR', 'text'],
@@ -101,7 +101,7 @@ $inhalte = [
     ['kontakt', 'text', 'Haben wir Ihr Interesse geweckt? Wir freuen uns darauf, Sie und Ihr Kind kennenzulernen! Vereinbaren Sie gerne einen Besichtigungstermin – telefonisch oder per E-Mail.', 'text'],
     ['kontakt', 'telefon', '07127/9266-850', 'text'],
     ['kontakt', 'email', 'info@entenbachtiger.de', 'text'],
-    ['kontakt', 'adresse', 'Brühlstr. 272, 72141 Walddorfhäslach', 'text'],
+    ['kontakt', 'adresse', 'Brühlstraße 2, 72141 Walddorfhäslach', 'text'],
 ];
 $stmt = $pdo->prepare("INSERT OR IGNORE INTO inhalte (seite, schluessel, wert, typ) VALUES (?, ?, ?, ?)");
 foreach ($inhalte as $i) {

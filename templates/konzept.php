@@ -167,7 +167,7 @@
             </div>
             <div class="aussen-bilder aufdecken">
                 <?php foreach (get_bilder('aussenbereich', 'garten') as $bild): ?>
-                <img src="/<?= e(bild_pfad($bild['dateiname'])) ?>" alt="<?= e($bild['alt_text']) ?>" loading="lazy">
+                <img src="/<?= e(bild_pfad($bild['dateiname'])) ?>" alt="<?= e($bild['alt_text']) ?>" loading="lazy" decoding="async">
                 <?php endforeach; ?>
             </div>
         </div>

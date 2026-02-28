@@ -15,7 +15,7 @@
                 <p><?= e($inhalte['text_2'] ?? '') ?></p>
             </div>
             <div class="ueber-bild aufdecken">
-                <img src="/static/images/Haus.jpg" alt="Altes Notariat in Walddorfhäslach" loading="lazy">
+                <img src="/static/images/Haus.jpg" alt="Altes Notariat in Walddorfhäslach" loading="lazy" decoding="async">
             </div>
         </div>
     </div>
@@ -57,14 +57,14 @@
         <div class="text-mitte">
             <span class="sektion-label aufdecken">Das Tiger-Team</span>
             <h2 class="aufdecken">Die Menschen hinter den Entenbach TigeRn</h2>
-            <p class="text-gross aufdecken">Drei qualifizierte Fachkräfte mit Herz, Erfahrung und der gemeinsamen Überzeugung: Jedes Kind verdient eine Betreuung, die es als Persönlichkeit ernst nimmt.</p>
+            <p class="text-gross aufdecken">Drei qualifizierte Tagespflegepersonen mit Herz, Erfahrung und der gemeinsamen Überzeugung: Jedes Kind verdient eine Betreuung, die es als Persönlichkeit ernst nimmt.</p>
         </div>
         <div class="team-grid">
             <?php foreach ($team as $mitglied): ?>
             <div class="team-karte aufdecken">
                 <div class="team-bild">
                     <?php if (!empty($mitglied['bild'])): ?>
-                    <img src="/static/uploads/<?= e($mitglied['bild']) ?>" alt="<?= e($mitglied['name']) ?>" loading="lazy">
+                    <img src="/static/uploads/<?= e($mitglied['bild']) ?>" alt="<?= e($mitglied['name']) ?>" loading="lazy" decoding="async">
                     <?php else: ?>
                     <div class="team-avatar">
                         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">

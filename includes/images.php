@@ -35,6 +35,12 @@ function optimiere_bild(array $upload_datei, string $dateiname): string {
     $thumb_pfad = UPLOAD_DIR . '/' . $name . '_thumb.jpg';
     imagejpeg($thumb, $thumb_pfad, 75);
 
+    // WebP-Versionen erstellen falls moeglich
+    if (function_exists('imagewebp')) {
+        imagewebp($img, UPLOAD_DIR . '/' . $name . '.webp', 80);
+        imagewebp($thumb, UPLOAD_DIR . '/' . $name . '_thumb.webp', 75);
+    }
+
     imagedestroy($img);
     imagedestroy($thumb);
 
@@ -62,6 +68,22 @@ function optimiere_bestehende_bilder(): void {
         $img = exif_korrigieren(IMAGE_DIR . '/' . $datei, $img);
         $img = bild_skalieren($img, THUMB_WIDTH);
         imagejpeg($img, $thumb_pfad, 75);
+        // WebP-Versionen erstellen
+        if (function_exists('imagewebp')) {
+            $webp_thumb = IMAGE_DIR . '/' . $name . '_thumb.webp';
+            if (!file_exists($webp_thumb)) {
+                imagewebp($img, $webp_thumb, 75);
+            }
+            $webp_haupt = IMAGE_DIR . '/' . $name . '.webp';
+            if (!file_exists($webp_haupt)) {
+                $haupt_img = bild_laden(IMAGE_DIR . '/' . $datei);
+                if ($haupt_img) {
+                    $haupt_img = exif_korrigieren(IMAGE_DIR . '/' . $datei, $haupt_img);
+                    imagewebp($haupt_img, $webp_haupt, 80);
+                    imagedestroy($haupt_img);
+                }
+            }
+        }
         imagedestroy($img);
     }
 }

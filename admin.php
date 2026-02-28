@@ -21,14 +21,13 @@ if ($aktion === 'login') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $benutzer = $_POST['benutzername'] ?? '';
         $passwort = $_POST['passwort'] ?? '';
-        $pw_hash = hash('sha256', $passwort);
 
         $db = get_db();
-        $stmt = $db->prepare('SELECT * FROM admin WHERE benutzername = ? AND passwort_hash = ?');
-        $stmt->execute([$benutzer, $pw_hash]);
+        $stmt = $db->prepare('SELECT * FROM admin WHERE benutzername = ?');
+        $stmt->execute([$benutzer]);
         $admin = $stmt->fetch();
 
-        if ($admin) {
+        if ($admin && passwort_verifizieren($passwort, $admin['passwort_hash'], $admin['id'])) {
             $_SESSION['admin_eingeloggt'] = true;
             flash('Erfolgreich eingeloggt!', 'erfolg');
             header('Location: /admin');
@@ -65,11 +64,16 @@ switch ($aktion) {
         $db = get_db();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            foreach ($_POST as $schluessel => $wert) {
-                $stmt = $db->prepare('UPDATE inhalte SET wert = ? WHERE seite = ? AND schluessel = ?');
-                $stmt->execute([$wert, $seite, $schluessel]);
+            if (!csrf_pruefen()) {
+                flash('Ungültige Anfrage.', 'fehler');
+            } else {
+                foreach ($_POST as $schluessel => $wert) {
+                    if ($schluessel === 'csrf_token') continue;
+                    $stmt = $db->prepare('UPDATE inhalte SET wert = ? WHERE seite = ? AND schluessel = ?');
+                    $stmt->execute([$wert, $seite, $schluessel]);
+                }
+                flash("Inhalte für '$seite' gespeichert!", 'erfolg');
             }
-            flash("Inhalte für '$seite' gespeichert!", 'erfolg');
         }
 
         $stmt = $db->prepare('SELECT * FROM inhalte WHERE seite = ? ORDER BY id');
@@ -83,15 +87,19 @@ switch ($aktion) {
         $db = get_db();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $schluessel = $_POST['schluessel'] ?? '';
-            $alt_text = $_POST['alt_text'] ?? '';
+            if (!csrf_pruefen()) {
+                flash('Ungültige Anfrage.', 'fehler');
+            } else {
+                $schluessel = $_POST['schluessel'] ?? '';
+                $alt_text = $_POST['alt_text'] ?? '';
 
-            if (!empty($_FILES['bild']['name'])) {
-                $dateiname = optimiere_bild($_FILES['bild'], $_FILES['bild']['name']);
-                if ($dateiname) {
-                    $stmt = $db->prepare('INSERT INTO bilder (seite, schluessel, dateiname, alt_text, reihenfolge) VALUES (?, ?, ?, ?, ?)');
-                    $stmt->execute([$seite, $schluessel, $dateiname, $alt_text, 99]);
-                    flash("Bild '$dateiname' hochgeladen und optimiert!", 'erfolg');
+                if (!empty($_FILES['bild']['name'])) {
+                    $dateiname = optimiere_bild($_FILES['bild'], $_FILES['bild']['name']);
+                    if ($dateiname) {
+                        $stmt = $db->prepare('INSERT INTO bilder (seite, schluessel, dateiname, alt_text, reihenfolge) VALUES (?, ?, ?, ?, ?)');
+                        $stmt->execute([$seite, $schluessel, $dateiname, $alt_text, 99]);
+                        flash("Bild '$dateiname' hochgeladen und optimiert!", 'erfolg');
+                    }
                 }
             }
         }
@@ -104,6 +112,11 @@ switch ($aktion) {
 
     case 'bild_loeschen':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!csrf_pruefen()) {
+                flash('Ungültige Anfrage.', 'fehler');
+                header('Location: /admin');
+                exit;
+            }
             $bild_id = intval($_GET['bild_id'] ?? 0);
             $db = get_db();
             $stmt = $db->prepare('SELECT * FROM bilder WHERE id = ?');
@@ -127,6 +140,9 @@ switch ($aktion) {
         $db = get_db();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!csrf_pruefen()) {
+                flash('Ungültige Anfrage.', 'fehler');
+            } else {
             $post_aktion = $_POST['aktion'] ?? '';
 
             if ($post_aktion === 'aktualisieren') {
@@ -154,6 +170,7 @@ switch ($aktion) {
                     }
                 }
             }
+            }
         }
 
         $team = $db->query('SELECT * FROM team ORDER BY reihenfolge')->fetchAll();
@@ -162,22 +179,24 @@ switch ($aktion) {
 
     case 'passwort':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $altes_pw = $_POST['altes_passwort'] ?? '';
-            $neues_pw = $_POST['neues_passwort'] ?? '';
-            $altes_hash = hash('sha256', $altes_pw);
-            $neues_hash = hash('sha256', $neues_pw);
-
-            $db = get_db();
-            $stmt = $db->prepare('SELECT * FROM admin WHERE passwort_hash = ?');
-            $stmt->execute([$altes_hash]);
-            $admin = $stmt->fetch();
-
-            if ($admin && $neues_pw) {
-                $stmt = $db->prepare('UPDATE admin SET passwort_hash = ? WHERE id = ?');
-                $stmt->execute([$neues_hash, $admin['id']]);
-                flash('Passwort geändert!', 'erfolg');
+            if (!csrf_pruefen()) {
+                flash('Ungültige Anfrage.', 'fehler');
             } else {
-                flash('Altes Passwort falsch.', 'fehler');
+                $altes_pw = $_POST['altes_passwort'] ?? '';
+                $neues_pw = $_POST['neues_passwort'] ?? '';
+
+                $db = get_db();
+                $stmt = $db->prepare('SELECT * FROM admin LIMIT 1');
+                $admin = $stmt->fetch();
+
+                if ($admin && passwort_verifizieren($altes_pw, $admin['passwort_hash'], $admin['id']) && $neues_pw) {
+                    $neues_hash = password_hash($neues_pw, PASSWORD_DEFAULT);
+                    $stmt = $db->prepare('UPDATE admin SET passwort_hash = ? WHERE id = ?');
+                    $stmt->execute([$neues_hash, $admin['id']]);
+                    flash('Passwort geändert!', 'erfolg');
+                } else {
+                    flash('Altes Passwort falsch.', 'fehler');
+                }
             }
         }
         require __DIR__ . '/templates/admin/passwort.php';

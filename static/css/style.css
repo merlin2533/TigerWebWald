@@ -1781,6 +1781,7 @@ ul { list-style: none; }
 .text-seite ul {
     margin: 12px 0;
     padding-left: 24px;
+    list-style: disc;
 }
 
 .text-seite ul li {
@@ -1842,4 +1843,48 @@ ul { list-style: none; }
         gap: 12px;
         padding: 20px;
     }
+}
+
+/* ===========================
+   Accessibility
+   =========================== */
+
+/* Skip-Link: nur bei Fokus sichtbar */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 10000;
+    background: var(--farbe-gelb);
+    color: var(--farbe-blau);
+    padding: 12px 24px;
+    border-radius: var(--radius-klein);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 16px;
+}
+
+/* Sichtbare Focus-Styles fuer Tastaturnavigation */
+*:focus-visible {
+    outline: 3px solid var(--farbe-gelb);
+    outline-offset: 2px;
+}
+
+.btn:focus-visible {
+    outline-offset: 4px;
+    box-shadow: 0 0 0 3px rgba(237, 171, 58, 0.4);
+}
+
+.nav-link:focus-visible {
+    outline-offset: 4px;
+}
+
+.galerie-item:focus-visible {
+    outline: 3px solid var(--farbe-gelb);
+    outline-offset: -3px;
 }

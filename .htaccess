@@ -1,6 +1,10 @@
 RewriteEngine On
 RewriteBase /
 
+# --- HTTPS erzwingen ---
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
 # --- GZIP-Kompression ---
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
@@ -14,6 +18,7 @@ RewriteBase /
     ExpiresDefault "access plus 1 week"
     ExpiresByType image/jpeg "access plus 1 month"
     ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
     ExpiresByType image/svg+xml "access plus 1 month"
     ExpiresByType image/x-icon "access plus 1 year"
     ExpiresByType text/css "access plus 1 week"
@@ -29,6 +34,7 @@ RewriteBase /
     Header set Referrer-Policy "strict-origin-when-cross-origin"
     Header set X-XSS-Protection "1; mode=block"
     Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com https://www.google.de https://maps.google.com;"
 </IfModule>
 
 # --- Statische Dateien direkt durchlassen ---

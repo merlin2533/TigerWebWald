@@ -88,6 +88,9 @@
     <?php endif; ?>
 </head>
 <body>
+    <!-- Skip-Link fuer Barrierefreiheit -->
+    <a href="#hauptinhalt" class="skip-link">Zum Hauptinhalt springen</a>
+
     <!-- Navigation -->
     <header class="site-header" id="site-header">
         <nav class="nav-container">
@@ -121,7 +124,7 @@
     <?php endif; ?>
 
     <!-- Hauptinhalt -->
-    <main>
+    <main id="hauptinhalt">
         <?= $page_content ?>
     </main>
 

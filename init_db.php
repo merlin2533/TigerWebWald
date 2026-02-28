@@ -57,7 +57,7 @@ $pdo->exec("
 // --- Standarddaten einfuegen ---
 
 // Admin-Benutzer (Standard: admin / tiger2024)
-$pw_hash = hash('sha256', 'tiger2024');
+$pw_hash = password_hash('tiger2024', PASSWORD_DEFAULT);
 $stmt = $pdo->prepare("INSERT OR IGNORE INTO admin (benutzername, passwort_hash) VALUES (?, ?)");
 $stmt->execute(['admin', $pw_hash]);
 

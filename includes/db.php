@@ -18,6 +18,22 @@ function get_db(): PDO {
     return $pdo;
 }
 
+function db_initialisiert(): bool {
+    try {
+        $db = get_db();
+        $result = $db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='admin'");
+        return $result->fetch() !== false;
+    } catch (Exception $e) {
+        return false;
+    }
+}
+
+function db_auto_init(): void {
+    if (!db_initialisiert()) {
+        require_once BASE_DIR . '/init_db.php';
+    }
+}
+
 function get_inhalt(string $seite, string $schluessel, string $standard = ''): string {
     $db = get_db();
     $stmt = $db->prepare('SELECT wert FROM inhalte WHERE seite = ? AND schluessel = ?');

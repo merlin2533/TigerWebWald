@@ -11,10 +11,8 @@ require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/images.php';
 
-// Datenbank automatisch erstellen falls nicht vorhanden
-if (!file_exists(DB_PATH)) {
-    require_once __DIR__ . '/init_db.php';
-}
+// Datenbank automatisch erstellen falls Tabellen fehlen
+db_auto_init();
 
 $aktion = $_GET['aktion'] ?? 'dashboard';
 

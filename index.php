@@ -11,10 +11,8 @@ ini_set('log_errors', '1');
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/auth.php';
 
-// Datenbank automatisch erstellen falls nicht vorhanden
-if (!file_exists(DB_PATH)) {
-    require_once __DIR__ . '/init_db.php';
-}
+// Datenbank automatisch erstellen falls Tabellen fehlen
+db_auto_init();
 
 $seite = $_GET['seite'] ?? 'startseite';
 

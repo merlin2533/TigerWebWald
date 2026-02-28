@@ -34,7 +34,7 @@
                 </div>
                 <h3>Modell 1</h3>
                 <p class="zeiten-plaetze">5 Plätze</p>
-                <p><?= e($inhalte['oeffnungszeiten_1'] ?? 'Montag–Donnerstag 07:30–15:00 Uhr, Freitag 07:30–12:30 Uhr') ?></p>
+                <p><?= e($inhalte['oeffnungszeiten_1'] ?? 'Montag–Donnerstag 07:30–15:00 Uhr, Freitag 08:00–12:30 Uhr') ?></p>
             </div>
             <div class="zeiten-karte">
                 <div class="zeiten-icon">
@@ -44,7 +44,7 @@
                 </div>
                 <h3>Modell 2</h3>
                 <p class="zeiten-plaetze">4 Plätze</p>
-                <p><?= e($inhalte['oeffnungszeiten_2'] ?? 'Montag–Freitag 07:30–12:30 Uhr') ?></p>
+                <p><?= e($inhalte['oeffnungszeiten_2'] ?? 'Montag–Donnerstag 07:30–12:30 Uhr, Freitag 08:00–12:30 Uhr') ?></p>
             </div>
         </div>
         <p class="aufdecken text-klein">Die betreuungsfreie Zeit umfasst 30 Urlaubstage pro Jahr. Die Urlaubsplanung wird spätestens bis zum 31.12. des Vorjahres bekannt gegeben.</p>

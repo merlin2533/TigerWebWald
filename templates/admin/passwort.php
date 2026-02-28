@@ -32,6 +32,7 @@
         <div class="admin-karte" style="max-width: 480px;">
             <h2>Neues Passwort setzen</h2>
             <form method="POST">
+                <?= csrf_feld() ?>
                 <div class="form-gruppe">
                     <label for="altes_passwort">Aktuelles Passwort</label>
                     <input type="password" id="altes_passwort" name="altes_passwort" required>

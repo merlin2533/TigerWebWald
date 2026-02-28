@@ -42,6 +42,7 @@
                         <?= e($bild['dateiname']) ?><br>
                         <em><?= e($bild['alt_text']) ?></em>
                         <form method="POST" action="/admin/bild/loeschen/<?= intval($bild['id']) ?>" style="margin-top: 8px;" onsubmit="return confirm('Bild wirklich löschen?')">
+                            <?= csrf_feld() ?>
                             <button type="submit" class="btn-admin btn-admin--gefahr btn-admin--klein">Löschen</button>
                         </form>
                     </div>
@@ -60,6 +61,7 @@
                 Bilder werden automatisch auf max. 1200px Breite skaliert, komprimiert und ein Thumbnail wird erstellt.
             </p>
             <form method="POST" enctype="multipart/form-data">
+                <?= csrf_feld() ?>
                 <div class="form-gruppe">
                     <label for="schluessel">Kategorie</label>
                     <?php if ($seite === 'raeumlichkeiten'): ?>

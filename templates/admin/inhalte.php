@@ -32,6 +32,7 @@
         <div class="admin-karte">
             <h2>Inhalte bearbeiten</h2>
             <form method="POST">
+                <?= csrf_feld() ?>
                 <?php foreach ($inhalte as $inhalt): ?>
                 <div class="form-gruppe">
                     <label for="<?= e($inhalt['schluessel']) ?>"><?= e(ucwords(str_replace('_', ' ', $inhalt['schluessel']))) ?></label>

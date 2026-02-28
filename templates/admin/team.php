@@ -33,6 +33,7 @@
         <div class="admin-karte">
             <h2>Team-Informationen</h2>
             <form method="POST">
+                <?= csrf_feld() ?>
                 <input type="hidden" name="aktion" value="aktualisieren">
                 <?php foreach ($team as $mitglied): ?>
                 <div class="admin-team-karte">
@@ -75,6 +76,7 @@
                 <div style="flex: 1; min-width: 200px;">
                     <h3 style="margin-bottom: 8px;"><?= e($mitglied['name']) ?></h3>
                     <form method="POST" enctype="multipart/form-data">
+                        <?= csrf_feld() ?>
                         <input type="hidden" name="aktion" value="bild_hochladen">
                         <input type="hidden" name="mitglied_id" value="<?= intval($mitglied['id']) ?>">
                         <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">

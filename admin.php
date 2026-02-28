@@ -19,21 +19,25 @@ $aktion = $_GET['aktion'] ?? 'dashboard';
 // Login braucht keine Auth-Pruefung
 if ($aktion === 'login') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $benutzer = $_POST['benutzername'] ?? '';
-        $passwort = $_POST['passwort'] ?? '';
-
-        $db = get_db();
-        $stmt = $db->prepare('SELECT * FROM admin WHERE benutzername = ?');
-        $stmt->execute([$benutzer]);
-        $admin = $stmt->fetch();
-
-        if ($admin && passwort_verifizieren($passwort, $admin['passwort_hash'], $admin['id'])) {
-            $_SESSION['admin_eingeloggt'] = true;
-            flash('Erfolgreich eingeloggt!', 'erfolg');
-            header('Location: /admin');
-            exit;
+        if (!csrf_pruefen()) {
+            flash('Ungültige Anfrage.', 'fehler');
         } else {
-            flash('Falscher Benutzername oder Passwort.', 'fehler');
+            $benutzer = $_POST['benutzername'] ?? '';
+            $passwort = $_POST['passwort'] ?? '';
+
+            $db = get_db();
+            $stmt = $db->prepare('SELECT * FROM admin WHERE benutzername = ?');
+            $stmt->execute([$benutzer]);
+            $admin = $stmt->fetch();
+
+            if ($admin && passwort_verifizieren($passwort, $admin['passwort_hash'], $admin['id'])) {
+                $_SESSION['admin_eingeloggt'] = true;
+                flash('Erfolgreich eingeloggt!', 'erfolg');
+                header('Location: /admin');
+                exit;
+            } else {
+                flash('Falscher Benutzername oder Passwort.', 'fehler');
+            }
         }
     }
     require __DIR__ . '/templates/admin/login.php';

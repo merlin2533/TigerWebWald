@@ -16,6 +16,7 @@ $seiten = [
     ['pfad' => '/raeumlichkeiten', 'prioritaet' => '0.8', 'frequenz' => 'monthly'],
     ['pfad' => '/konzept',        'prioritaet' => '0.7', 'frequenz' => 'monthly'],
     ['pfad' => '/kontakt',        'prioritaet' => '0.9', 'frequenz' => 'monthly'],
+    ['pfad' => '/faq',            'prioritaet' => '0.7', 'frequenz' => 'monthly'],
     ['pfad' => '/impressum',      'prioritaet' => '0.3', 'frequenz' => 'yearly'],
     ['pfad' => '/datenschutz',    'prioritaet' => '0.3', 'frequenz' => 'yearly'],
 ];

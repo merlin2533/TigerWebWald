@@ -43,9 +43,9 @@ switch ($seite) {
         $seitentitel = 'Räumlichkeiten';
         $meta_beschreibung = 'Räumlichkeiten der EntenbachTigeR Kindertagespflege Walddorfhäslach. Spielzimmer, Bewegungsraum, Schlafraum, Essbereich und Garten im Alten Notariat.';
         $canonical_pfad = '/raeumlichkeiten';
-        $bilder_raw = get_bilder('raeumlichkeiten');
-        // Alben dynamisch aus DB laden
-        $alben_raw = get_alben('raeumlichkeiten');
+        $bilder_raw = array_merge(get_bilder('raeumlichkeiten'), get_bilder('aussenbereich'));
+        // Alben dynamisch aus DB laden (Innenraeume + Aussenbereich)
+        $alben_raw = array_merge(get_alben('raeumlichkeiten'), get_alben('aussenbereich'));
         $kategorie_namen = [];
         $kategorie_beschreibungen = [];
         foreach ($alben_raw as $a) {
@@ -80,6 +80,14 @@ switch ($seite) {
         $canonical_pfad = '/kontakt';
         $inhalte = get_alle_inhalte('kontakt');
         $template = 'kontakt.php';
+        break;
+
+    case 'faq':
+        $seitentitel = 'Häufige Fragen (FAQ)';
+        $meta_beschreibung = 'Häufige Fragen zur Kindertagespflege EntenbachTigeR in Walddorfhäslach: Kosten, Eingewöhnung, Öffnungszeiten, Anmeldung, Qualifikation, Verpflegung und mehr. U3-Betreuung für Kinder unter 3 Jahren.';
+        $canonical_pfad = '/faq';
+        $inhalte = get_alle_inhalte('kontakt');
+        $template = 'faq.php';
         break;
 
     case 'impressum':

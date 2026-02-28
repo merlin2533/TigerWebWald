@@ -87,6 +87,92 @@
     }
     </script>
     <?php endif; ?>
+
+    <?php if (($aktive_seite ?? '') === 'faq'): ?>
+    <!-- Schema.org FAQPage JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "name": "Häufige Fragen zur Kindertagespflege EntenbachTigeR",
+        "description": "Antworten auf häufige Fragen zu Kosten, Eingewöhnung, Betreuung und Anmeldung bei der Kindertagespflege EntenbachTigeR in Walddorfhäslach.",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Was ist Kindertagespflege und wie unterscheidet sie sich von einer Kita?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kindertagespflege ist eine gesetzlich anerkannte und gleichwertige Betreuungsform neben der Kita. Bei EntenbachTigeR werden Kinder in einer kleinen, familienähnlichen Großtagespflege mit maximal 9 Betreuungsplätzen von drei qualifizierten Tagespflegepersonen betreut. Der größte Vorteil ist die familiäre Atmosphäre mit deutlich mehr individueller Zuwendung."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Welche Kinder werden bei Ihnen betreut?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Wir betreuen Kinder unter 3 Jahren (U3) — in der Regel ab ca. 1 Jahr bis zum Übergang in den Kindergarten. Seit dem 1. August 2013 haben Kinder ab dem vollendeten ersten Lebensjahr einen Rechtsanspruch auf einen Betreuungsplatz."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Welche Öffnungszeiten und Betreuungsmodelle gibt es?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Montag bis Donnerstag: 7:30–15:00 Uhr, Freitag: 8:00–12:30 Uhr. Je nach Verfügbarkeit bieten wir verschiedene Betreuungsmodelle an. Ein Vorteil der Kindertagespflege ist die Möglichkeit, flexible und individuelle Betreuungszeiten zu vereinbaren."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Was kostet ein Betreuungsplatz?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Die Kosten werden größtenteils vom Jugendamt getragen. Der Betreuungssatz liegt bei ca. 7,50 € pro Stunde für U3-Kinder. Eltern zahlen einen einkommensabhängigen Elternbeitrag an die Gemeinde, vergleichbar mit Kita-Gebühren. Zusätzlich kann Essensgeld anfallen."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Wie läuft die Eingewöhnung ab?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Die Eingewöhnung orientiert sich am Berliner Eingewöhnungsmodell und dauert in der Regel 2 bis 4 Wochen. Sie umfasst eine Grundphase mit Elternbegleitung, erste Trennungsversuche, eine Stabilisierungsphase und den Abschluss, wenn das Kind sich sicher fühlt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Welche Qualifikation haben die Tagespflegepersonen?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Alle drei Tagespflegepersonen verfügen über eine qualifizierte Ausbildung nach dem kompetenzorientierten Qualifizierungshandbuch (QHB) mit mindestens 160 Unterrichtseinheiten. Sie nehmen regelmäßig an Fortbildungen teil und werden fachlich durch den Tagesmutterverein Reutlingen begleitet."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Wie kann ich mein Kind anmelden?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Der erste Schritt ist ein persönliches Kennenlerngespräch mit Besichtigung der Räumlichkeiten. Danach folgt der Betreuungsvertrag und die sanfte Eingewöhnung. Wir empfehlen, sich frühzeitig zu melden, da unsere Plätze begrenzt sind."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Was passiert, wenn eine Tagespflegeperson krank wird?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Da wir als Großtagespflege mit drei Tagespflegepersonen arbeiten, ist die Vertretung bei Krankheit oder Urlaub in der Regel intern abgesichert. Die Kinder kennen alle Bezugspersonen. Der Tagesmutterverein Reutlingen unterstützt zusätzlich bei der Organisation von Vertretungslösungen."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Wo befindet sich die Einrichtung?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Die EntenbachTigeR Kindertagespflege befindet sich in der Brühlstr. 272 in 72141 Walddorfhäslach — in einem historischen Fachwerkhaus (dem Alten Notariat). Die Räumlichkeiten umfassen Spielzimmer, Bewegungsraum, Schlafraum, Essbereich, Wickelbereich, Küche sowie Garten und Außenbereich."
+                }
+            }
+        ]
+    }
+    </script>
+    <?php endif; ?>
 </head>
 <body>
     <!-- Skip-Link fuer Barrierefreiheit -->
@@ -110,6 +196,7 @@
                 <li><a href="/ueber-uns" class="nav-link <?= ($aktive_seite ?? '') === 'ueber-uns' ? 'aktiv' : '' ?>">Über uns</a></li>
                 <li><a href="/raeumlichkeiten" class="nav-link <?= ($aktive_seite ?? '') === 'raeumlichkeiten' ? 'aktiv' : '' ?>">Räumlichkeiten</a></li>
                 <li><a href="/konzept" class="nav-link <?= ($aktive_seite ?? '') === 'konzept' ? 'aktiv' : '' ?>">Konzept</a></li>
+                <li><a href="/faq" class="nav-link <?= ($aktive_seite ?? '') === 'faq' ? 'aktiv' : '' ?>">FAQ</a></li>
                 <li><a href="/kontakt" class="nav-link nav-link--cta <?= ($aktive_seite ?? '') === 'kontakt' ? 'aktiv' : '' ?>">Kontakt</a></li>
             </ul>
         </nav>
@@ -160,6 +247,7 @@
                         <li><a href="/ueber-uns">Über uns</a></li>
                         <li><a href="/raeumlichkeiten">Räumlichkeiten</a></li>
                         <li><a href="/konzept">Konzept</a></li>
+                        <li><a href="/faq">FAQ</a></li>
                         <li><a href="/kontakt">Kontakt</a></li>
                     </ul>
                 </div>

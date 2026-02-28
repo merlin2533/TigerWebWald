@@ -49,6 +49,9 @@ function db_auto_init(): void {
             )
         ");
     }
+    // Korrektur: Dateinamen Außen -> Aueßen (tatsaechliche Dateinamen im Dateisystem)
+    $stmt = $db->prepare("UPDATE bilder SET dateiname = REPLACE(dateiname, 'Außen', 'Aueßen') WHERE dateiname LIKE 'Außen%'");
+    $stmt->execute();
 }
 
 function get_inhalt(string $seite, string $schluessel, string $standard = ''): string {

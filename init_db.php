@@ -153,8 +153,8 @@ $bilder = [
     ['raeumlichkeiten', 'kueche', 'Küche.jpg', 'Moderne Küche mit Holzbalken', 1],
     ['raeumlichkeiten', 'wickelbereich', 'Wickelbereich.jpg', 'Wickelbereich mit Treppe', 1],
     ['raeumlichkeiten', 'wickelbereich', 'Wickelbereich2.jpg', 'Kinderbad mit Waschbecken', 2],
-    ['aussenbereich', 'garten', 'Außen1.jpg', 'Außenbereich mit Spielplatz', 1],
-    ['aussenbereich', 'garten', 'Außen2.jpg', 'Garten mit Sonnensegel', 2],
+    ['aussenbereich', 'garten', 'Aueßen1.jpg', 'Außenbereich mit Spielplatz', 1],
+    ['aussenbereich', 'garten', 'Aueßen2.jpg', 'Garten mit Sonnensegel', 2],
     ['aussenbereich', 'bollerwagen', 'Gerät.jpg', 'Bollerwagen für Ausflüge', 1],
 ];
 $stmt = $pdo->prepare("INSERT OR IGNORE INTO bilder (seite, schluessel, dateiname, alt_text, reihenfolge) VALUES (?, ?, ?, ?, ?)");

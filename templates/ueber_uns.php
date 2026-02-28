@@ -1,12 +1,8 @@
-{% extends "base.html" %}
-{% block titel %}Über uns{% endblock %}
-
-{% block inhalt %}
 <!-- Page Header -->
 <section class="seiten-header">
     <div class="container">
         <span class="sektion-label aufdecken">Wer wir sind</span>
-        <h1 class="aufdecken">{{ inhalte.get('titel', 'Über die Entenbach Tiger') }}</h1>
+        <h1 class="aufdecken"><?= e($inhalte['titel'] ?? 'Über die Entenbach Tiger') ?></h1>
     </div>
 </section>
 
@@ -15,11 +11,11 @@
     <div class="container">
         <div class="ueber-grid">
             <div class="ueber-text aufdecken">
-                <p class="text-gross">{{ inhalte.get('text_1', '') }}</p>
-                <p>{{ inhalte.get('text_2', '') }}</p>
+                <p class="text-gross"><?= e($inhalte['text_1'] ?? '') ?></p>
+                <p><?= e($inhalte['text_2'] ?? '') ?></p>
             </div>
             <div class="ueber-bild aufdecken">
-                <img src="{{ url_for('static', filename='images/Haus.jpg') }}" alt="Altes Notariat in Walddorfhäslach" loading="lazy">
+                <img src="/static/images/Haus.jpg" alt="Altes Notariat in Walddorfhäslach" loading="lazy">
             </div>
         </div>
     </div>
@@ -38,7 +34,7 @@
                 </div>
                 <h3>Modell 1</h3>
                 <p class="zeiten-plaetze">5 Plätze</p>
-                <p>{{ inhalte.get('oeffnungszeiten_1', 'Montag–Donnerstag 07:30–15:00 Uhr, Freitag 07:30–12:30 Uhr') }}</p>
+                <p><?= e($inhalte['oeffnungszeiten_1'] ?? 'Montag–Donnerstag 07:30–15:00 Uhr, Freitag 07:30–12:30 Uhr') ?></p>
             </div>
             <div class="zeiten-karte">
                 <div class="zeiten-icon">
@@ -48,7 +44,7 @@
                 </div>
                 <h3>Modell 2</h3>
                 <p class="zeiten-plaetze">4 Plätze</p>
-                <p>{{ inhalte.get('oeffnungszeiten_2', 'Montag–Freitag 07:30–12:30 Uhr') }}</p>
+                <p><?= e($inhalte['oeffnungszeiten_2'] ?? 'Montag–Freitag 07:30–12:30 Uhr') ?></p>
             </div>
         </div>
         <p class="aufdecken text-klein">Die betreuungsfreie Zeit umfasst 30 Urlaubstage pro Jahr. Die Urlaubsplanung wird spätestens bis zum 31.12. des Vorjahres bekannt gegeben.</p>
@@ -64,28 +60,27 @@
             <p class="text-gross aufdecken">Drei qualifizierte Fachkräfte mit Herz, Erfahrung und der gemeinsamen Überzeugung: Jedes Kind verdient eine Betreuung, die es als Persönlichkeit ernst nimmt.</p>
         </div>
         <div class="team-grid">
-            {% for mitglied in team %}
+            <?php foreach ($team as $mitglied): ?>
             <div class="team-karte aufdecken">
                 <div class="team-bild">
-                    {% if mitglied.bild %}
-                    <img src="{{ url_for('static', filename='uploads/' + mitglied.bild) }}" alt="{{ mitglied.name }}" loading="lazy">
-                    {% else %}
+                    <?php if (!empty($mitglied['bild'])): ?>
+                    <img src="/static/uploads/<?= e($mitglied['bild']) ?>" alt="<?= e($mitglied['name']) ?>" loading="lazy">
+                    <?php else: ?>
                     <div class="team-avatar">
                         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                             <circle cx="12" cy="7" r="4"/>
                         </svg>
                     </div>
-                    {% endif %}
+                    <?php endif; ?>
                 </div>
                 <div class="team-info">
-                    <h3>{{ mitglied.name }}</h3>
-                    <span class="team-rolle">{{ mitglied.rolle }}</span>
-                    <p>{{ mitglied.beschreibung }}</p>
+                    <h3><?= e($mitglied['name']) ?></h3>
+                    <span class="team-rolle"><?= e($mitglied['rolle']) ?></span>
+                    <p><?= e($mitglied['beschreibung']) ?></p>
                 </div>
             </div>
-            {% endfor %}
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
-{% endblock %}

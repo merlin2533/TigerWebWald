@@ -1,12 +1,8 @@
-{% extends "base.html" %}
-{% block titel %}Pädagogisches Konzept{% endblock %}
-
-{% block inhalt %}
 <section class="seiten-header">
     <div class="container">
         <span class="sektion-label aufdecken">Unsere Pädagogik</span>
-        <h1 class="aufdecken">{{ inhalte.get('titel', 'Unser Pädagogisches Konzept') }}</h1>
-        <p class="text-gross aufdecken">{{ inhalte.get('intro', '') }}</p>
+        <h1 class="aufdecken"><?= e($inhalte['titel'] ?? 'Unser Pädagogisches Konzept') ?></h1>
+        <p class="text-gross aufdecken"><?= e($inhalte['intro'] ?? '') ?></p>
     </div>
 </section>
 
@@ -21,8 +17,8 @@
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                     </svg>
                 </div>
-                <h3>{{ inhalte.get('bindung_titel', 'Sichere Bindung') }}</h3>
-                <p>{{ inhalte.get('bindung_text', '') }}</p>
+                <h3><?= e($inhalte['bindung_titel'] ?? 'Sichere Bindung') ?></h3>
+                <p><?= e($inhalte['bindung_text'] ?? '') ?></p>
             </div>
             <div class="saeule aufdecken">
                 <div class="saeule-nummer">02</div>
@@ -31,8 +27,8 @@
                         <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
                     </svg>
                 </div>
-                <h3>{{ inhalte.get('struktur_titel', 'Rituale & Strukturen') }}</h3>
-                <p>{{ inhalte.get('struktur_text', '') }}</p>
+                <h3><?= e($inhalte['struktur_titel'] ?? 'Rituale & Strukturen') ?></h3>
+                <p><?= e($inhalte['struktur_text'] ?? '') ?></p>
             </div>
             <div class="saeule aufdecken">
                 <div class="saeule-nummer">03</div>
@@ -41,8 +37,8 @@
                         <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
                     </svg>
                 </div>
-                <h3>{{ inhalte.get('selbststaendigkeit_titel', 'Selbstständigkeit') }}</h3>
-                <p>{{ inhalte.get('selbststaendigkeit_text', '') }}</p>
+                <h3><?= e($inhalte['selbststaendigkeit_titel'] ?? 'Selbstständigkeit') ?></h3>
+                <p><?= e($inhalte['selbststaendigkeit_text'] ?? '') ?></p>
             </div>
         </div>
     </div>
@@ -54,8 +50,8 @@
         <div class="eingewoehnung-grid">
             <div class="aufdecken">
                 <span class="sektion-label">Berliner Modell</span>
-                <h2>{{ inhalte.get('eingewoehnung_titel', 'Sanfte Eingewöhnung') }}</h2>
-                <p class="text-gross">{{ inhalte.get('eingewoehnung_text', '') }}</p>
+                <h2><?= e($inhalte['eingewoehnung_titel'] ?? 'Sanfte Eingewöhnung') ?></h2>
+                <p class="text-gross"><?= e($inhalte['eingewoehnung_text'] ?? '') ?></p>
             </div>
             <div class="eingewoehnung-phasen aufdecken">
                 <div class="phase">
@@ -170,11 +166,10 @@
                 </ul>
             </div>
             <div class="aussen-bilder aufdecken">
-                {% for bild in get_bilder('aussenbereich', 'garten') %}
-                <img src="{{ url_for('static', filename=bild_pfad(bild.dateiname)) }}" alt="{{ bild.alt_text }}" loading="lazy">
-                {% endfor %}
+                <?php foreach (get_bilder('aussenbereich', 'garten') as $bild): ?>
+                <img src="/<?= e(bild_pfad($bild['dateiname'])) ?>" alt="<?= e($bild['alt_text']) ?>" loading="lazy">
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </section>
-{% endblock %}

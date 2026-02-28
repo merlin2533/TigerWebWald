@@ -1,18 +1,14 @@
-{% extends "base.html" %}
-{% block titel %}Startseite{% endblock %}
-
-{% block inhalt %}
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-bild">
-        <img src="{{ url_for('static', filename='images/Haus.jpg') }}" alt="Fachwerkhaus der Entenbach Tiger" loading="eager">
+        <img src="/static/images/Haus.jpg" alt="Fachwerkhaus der Entenbach Tiger" loading="eager">
         <div class="hero-overlay"></div>
     </div>
     <div class="hero-inhalt">
-        <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Entenbach Tiger Logo" class="hero-logo aufdecken">
-        <h1 class="aufdecken">{{ inhalte.get('hero_titel', 'Willkommen bei den Entenbach Tigern') }}</h1>
-        <p class="hero-untertitel aufdecken">{{ inhalte.get('hero_untertitel', 'Kindertagespflege im historischen Fachwerkhaus') }}</p>
-        <a href="{{ url_for('kontakt') }}" class="btn btn--primary aufdecken">Jetzt Kennenlernen</a>
+        <img src="/static/images/Logo.jpg" alt="Entenbach Tiger Logo" class="hero-logo aufdecken">
+        <h1 class="aufdecken"><?= e($inhalte['hero_titel'] ?? 'Willkommen bei den Entenbach Tigern') ?></h1>
+        <p class="hero-untertitel aufdecken"><?= e($inhalte['hero_untertitel'] ?? 'Kindertagespflege im historischen Fachwerkhaus') ?></p>
+        <a href="/kontakt" class="btn btn--primary aufdecken">Jetzt Kennenlernen</a>
     </div>
     <div class="hero-scroll-hinweis">
         <span>Mehr entdecken</span>
@@ -29,8 +25,8 @@
             <div class="intro-text aufdecken">
                 <span class="sektion-label">Herzlich Willkommen</span>
                 <h2>Ein Ort, an dem Kindheit zählt</h2>
-                <p class="text-gross">{{ inhalte.get('intro_text', 'Im Herzen von Walddorf bieten wir 9 Betreuungsplätze für Kinder unter 3 Jahren.') }}</p>
-                <p class="text-hervorhebung">{{ inhalte.get('cta_text', 'Lernen Sie uns und unsere Räumlichkeiten kennen!') }}</p>
+                <p class="text-gross"><?= e($inhalte['intro_text'] ?? 'Im Herzen von Walddorf bieten wir 9 Betreuungsplätze für Kinder unter 3 Jahren.') ?></p>
+                <p class="text-hervorhebung"><?= e($inhalte['cta_text'] ?? 'Lernen Sie uns und unsere Räumlichkeiten kennen!') ?></p>
                 <div class="intro-zahlen">
                     <div class="zahl-box aufdecken">
                         <span class="zahl">9</span>
@@ -48,9 +44,9 @@
             </div>
             <div class="intro-bilder aufdecken">
                 <div class="bild-collage">
-                    <img src="{{ url_for('static', filename='images/Raum1.jpg') }}" alt="Spielzimmer" class="collage-1" loading="lazy">
-                    <img src="{{ url_for('static', filename='images/Essbereich.jpg') }}" alt="Essbereich" class="collage-2" loading="lazy">
-                    <img src="{{ url_for('static', filename='images/Aueßen1.jpg') }}" alt="Außenbereich" class="collage-3" loading="lazy">
+                    <img src="/static/images/Raum1.jpg" alt="Spielzimmer" class="collage-1" loading="lazy">
+                    <img src="/static/images/Essbereich.jpg" alt="Essbereich" class="collage-2" loading="lazy">
+                    <img src="/static/images/Aueßen1.jpg" alt="Außenbereich" class="collage-3" loading="lazy">
                 </div>
             </div>
         </div>
@@ -69,7 +65,7 @@
                 </div>
                 <h3>Sichere Bindung</h3>
                 <p>Vertrauen ist die Grundlage. Durch feste Bezugspersonen und einfühlsame Begleitung geben wir Ihrem Kind die Sicherheit, die es braucht, um mutig die Welt zu entdecken.</p>
-                <a href="{{ url_for('konzept') }}" class="link-pfeil">Mehr erfahren</a>
+                <a href="/konzept" class="link-pfeil">Mehr erfahren</a>
             </div>
             <div class="highlight-karte aufdecken">
                 <div class="highlight-icon">
@@ -79,7 +75,7 @@
                 </div>
                 <h3>Verlässlicher Rahmen</h3>
                 <p>Morgenkreis, gemeinsame Mahlzeiten, Freispiel und Ruhezeiten — wiederkehrende Rituale geben kleinen Kindern die Orientierung und Stabilität, die sie brauchen.</p>
-                <a href="{{ url_for('konzept') }}" class="link-pfeil">Mehr erfahren</a>
+                <a href="/konzept" class="link-pfeil">Mehr erfahren</a>
             </div>
             <div class="highlight-karte aufdecken">
                 <div class="highlight-icon">
@@ -89,7 +85,7 @@
                 </div>
                 <h3>Selbstständigkeit fördern</h3>
                 <p>Nach Maria Montessori: „Hilf mir, es selbst zu tun." Wir geben Kindern Zeit und Raum, eigene Erfahrungen zu machen — und stärken so ihr Selbstvertrauen nachhaltig.</p>
-                <a href="{{ url_for('konzept') }}" class="link-pfeil">Mehr erfahren</a>
+                <a href="/konzept" class="link-pfeil">Mehr erfahren</a>
             </div>
         </div>
     </div>
@@ -101,15 +97,14 @@
         <h2 class="aufdecken">Neugierig geworden?</h2>
         <p class="text-gross aufdecken">Vereinbaren Sie einen unverbindlichen Besichtigungstermin — wir zeigen Ihnen gerne unsere Räume und beantworten alle Ihre Fragen.</p>
         <div class="cta-buttons aufdecken">
-            <a href="tel:{{ get_inhalt('kontakt', 'telefon', '07127/9266-850') }}" class="btn btn--primary btn--gross">
+            <a href="tel:<?= e(get_inhalt('kontakt', 'telefon', '07127/9266-850')) ?>" class="btn btn--primary btn--gross">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 Anrufen
             </a>
-            <a href="mailto:{{ get_inhalt('kontakt', 'email', 'info@entenbachtiger.de') }}" class="btn btn--secondary btn--gross">
+            <a href="mailto:<?= e(get_inhalt('kontakt', 'email', 'info@entenbachtiger.de')) ?>" class="btn btn--secondary btn--gross">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 E-Mail schreiben
             </a>
         </div>
     </div>
 </section>
-{% endblock %}

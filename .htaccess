@@ -1,0 +1,28 @@
+RewriteEngine On
+
+# Statische Dateien direkt durchlassen
+RewriteCond %{REQUEST_URI} ^/static/ [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Admin-Routen
+RewriteRule ^admin/login$ admin.php?aktion=login [L,QSA]
+RewriteRule ^admin/logout$ admin.php?aktion=logout [L,QSA]
+RewriteRule ^admin/inhalte/(.+)$ admin.php?aktion=inhalte&seite=$1 [L,QSA]
+RewriteRule ^admin/bilder/(.+)$ admin.php?aktion=bilder&seite=$1 [L,QSA]
+RewriteRule ^admin/bild/loeschen/(\d+)$ admin.php?aktion=bild_loeschen&bild_id=$1 [L,QSA]
+RewriteRule ^admin/team$ admin.php?aktion=team [L,QSA]
+RewriteRule ^admin/passwort$ admin.php?aktion=passwort [L,QSA]
+RewriteRule ^admin/?$ admin.php?aktion=dashboard [L,QSA]
+
+# Oeffentliche Seiten
+RewriteRule ^ueber-uns$ index.php?seite=ueber-uns [L,QSA]
+RewriteRule ^raeumlichkeiten$ index.php?seite=raeumlichkeiten [L,QSA]
+RewriteRule ^konzept$ index.php?seite=konzept [L,QSA]
+RewriteRule ^kontakt$ index.php?seite=kontakt [L,QSA]
+RewriteRule ^$ index.php?seite=startseite [L,QSA]
+
+# SQLite-Datenbank schuetzen
+<Files "tiger.db">
+    Require all denied
+</Files>

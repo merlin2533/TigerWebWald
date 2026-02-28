@@ -31,6 +31,23 @@ function db_initialisiert(): bool {
 function db_auto_init(): void {
     if (!db_initialisiert()) {
         require_once BASE_DIR . '/init_db.php';
+        return;
+    }
+    // Neue Tabellen bei bestehender DB nachrüsten
+    $db = get_db();
+    $result = $db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='alben'");
+    if ($result->fetch() === false) {
+        $db->exec("
+            CREATE TABLE IF NOT EXISTS alben (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                seite TEXT NOT NULL,
+                schluessel TEXT NOT NULL,
+                name TEXT NOT NULL,
+                beschreibung TEXT DEFAULT '',
+                reihenfolge INTEGER DEFAULT 0,
+                UNIQUE(seite, schluessel)
+            )
+        ");
     }
 }
 
@@ -68,6 +85,13 @@ function get_bilder(string $seite, ?string $schluessel = null): array {
 function get_team(): array {
     $db = get_db();
     return $db->query('SELECT * FROM team ORDER BY reihenfolge')->fetchAll();
+}
+
+function get_alben(string $seite): array {
+    $db = get_db();
+    $stmt = $db->prepare('SELECT * FROM alben WHERE seite = ? ORDER BY reihenfolge');
+    $stmt->execute([$seite]);
+    return $stmt->fetchAll();
 }
 
 function bild_pfad(string $dateiname): string {

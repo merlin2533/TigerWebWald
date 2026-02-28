@@ -1,7 +1,7 @@
-# Entenbach Tiger - Website Projekt
+# EntenbachTigeR - Website Projekt
 
 ## Projektbeschreibung
-Website fuer die Kindertagesstaette / Kinderkrippe **"Entenbach Tiger"**.
+Website fuer die Kindertagesstaette / Kinderkrippe **"EntenbachTigeR"**.
 Die Einrichtung befindet sich in einem historischen Fachwerkhaus.
 
 ## Sprache
@@ -9,7 +9,7 @@ Die Einrichtung befindet sich in einem historischen Fachwerkhaus.
 - Code-Kommentare und Commit-Messages: **Deutsch**
 
 ## Vorhandene Assets
-- **Logo.jpg** - Entenbach Tiger Logo (gelbe Ente mit Schriftzug)
+- **Logo.jpg** - EntenbachTigeR Logo (gelbe Ente mit Schriftzug)
 - **Haus.jpg** - Aussenansicht Fachwerkhaus
 - **Aueßen1.jpg / Aueßen2.jpg** - Aussenbereich / Spielplatz
 - **Essbereich.jpg / Essbereich2.jpg** - Essbereich mit Kinderstuehlen

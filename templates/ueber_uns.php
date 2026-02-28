@@ -2,7 +2,7 @@
 <section class="seiten-header">
     <div class="container">
         <span class="sektion-label aufdecken">Wer wir sind</span>
-        <h1 class="aufdecken"><?= e($inhalte['titel'] ?? 'Über die Entenbach TigeR') ?></h1>
+        <h1 class="aufdecken"><?= e($inhalte['titel'] ?? 'Über die EntenbachTigeR') ?></h1>
     </div>
 </section>
 
@@ -56,7 +56,7 @@
     <div class="container">
         <div class="text-mitte">
             <span class="sektion-label aufdecken">Das Tiger-Team</span>
-            <h2 class="aufdecken">Die Menschen hinter den Entenbach TigeRn</h2>
+            <h2 class="aufdecken">Die Menschen hinter den EntenbachTigeRn</h2>
             <p class="text-gross aufdecken">Drei qualifizierte Tagespflegepersonen mit Herz, Erfahrung und der gemeinsamen Überzeugung: Jedes Kind verdient eine Betreuung, die es als Persönlichkeit ernst nimmt.</p>
         </div>
         <div class="team-grid">

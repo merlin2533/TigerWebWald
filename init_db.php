@@ -45,6 +45,19 @@ $pdo->exec("
     )
 ");
 
+// Tabelle fuer Alben/Kategorien
+$pdo->exec("
+    CREATE TABLE IF NOT EXISTS alben (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        seite TEXT NOT NULL,
+        schluessel TEXT NOT NULL,
+        name TEXT NOT NULL,
+        beschreibung TEXT DEFAULT '',
+        reihenfolge INTEGER DEFAULT 0,
+        UNIQUE(seite, schluessel)
+    )
+");
+
 // Admin-Benutzer
 $pdo->exec("
     CREATE TABLE IF NOT EXISTS admin (
@@ -80,8 +93,8 @@ $inhalte = [
     ['startseite', 'intro_text', 'Im Herzen von Walddorf, im wunderschönen Alten Notariat, bieten wir 9 Betreuungsplätze für Kinder unter 3 Jahren. Unser erfahrenes Team aus drei Tagespflegepersonen begleitet Ihr Kind mit Herz, Kompetenz und viel Freude durch den Tag.', 'text'],
     ['startseite', 'cta_text', 'Lernen Sie uns und unsere Räumlichkeiten kennen!', 'text'],
     // Ueber uns
-    ['ueber_uns', 'titel', 'Über die Entenbach TigeR', 'text'],
-    ['ueber_uns', 'text_1', 'Die Entenbach TigeR sind eine Kindertagespflege im U3-Bereich, angeschlossen an den Tagesmutterverein Reutlingen – dabei jedoch komplett eigenständig in unserer pädagogischen Arbeit. Wir betreuen bis zu 9 Kinder in den liebevoll gestalteten Räumlichkeiten im Dachgeschoss des historischen Alten Notariats.', 'text'],
+    ['ueber_uns', 'titel', 'Über die EntenbachTigeR', 'text'],
+    ['ueber_uns', 'text_1', 'Die EntenbachTigeR sind eine Kindertagespflege im U3-Bereich, angeschlossen an den Tagesmutterverein Reutlingen – dabei jedoch komplett eigenständig in unserer pädagogischen Arbeit. Wir betreuen bis zu 9 Kinder in den liebevoll gestalteten Räumlichkeiten im Dachgeschoss des historischen Alten Notariats.', 'text'],
     ['ueber_uns', 'text_2', 'Unser Ziel ist es, jedem Kind eine sichere, geborgene und anregende Umgebung zu bieten, in der es sich in seinem eigenen Tempo entwickeln kann. Mit viel Herz und pädagogischer Kompetenz begleiten wir die Kinder durch ihren Tag.', 'text'],
     ['ueber_uns', 'oeffnungszeiten_1', 'Modell 1: Montag–Donnerstag 07:30–15:00 Uhr, Freitag 08:00–12:30 Uhr (5 Plätze)', 'text'],
     ['ueber_uns', 'oeffnungszeiten_2', 'Modell 2: Montag–Donnerstag 07:30–12:30 Uhr, Freitag 08:00–12:30 Uhr (4 Plätze)', 'text'],
@@ -108,10 +121,27 @@ foreach ($inhalte as $i) {
     $stmt->execute($i);
 }
 
+// Alben/Kategorien
+$alben = [
+    ['raeumlichkeiten', 'spielzimmer', 'Spielzimmer', 'Hier wird gespielt, gebaut und geträumt: Unser großzügiges Spielzimmer mit Kinderküche, Bauecke und kuscheliger Leseecke bietet vielfältige Möglichkeiten — für Rollenspiele, kreatives Bauen und ruhige Momente mit Büchern.', 1],
+    ['raeumlichkeiten', 'bewegungsraum', 'Bewegungsraum', 'Klettern, schaukeln, rollen — unser Bewegungsraum mit Nestschaukel, Bällebad und modularer Bewegungslandschaft lädt zum Toben ein. Zur Mittagszeit verwandelt er sich in einen ruhigen Schlafraum.', 2],
+    ['raeumlichkeiten', 'schlafraum', 'Schlafraum', 'Jedes Kind hat seinen eigenen festen Schlafplatz mit individueller Bettwäsche. Sanftes Licht, Ruhe und Geborgenheit sorgen dafür, dass die Kinder entspannt in die Mittagsruhe finden.', 3],
+    ['raeumlichkeiten', 'garderobe', 'Garderobe', 'Eigener Haken, eigenes Fach — in unserer Garderobe hat jedes Kind seinen persönlichen Platz. Das fördert die Selbstständigkeit und gibt Orientierung beim täglichen Ankommen und Verabschieden.', 4],
+    ['raeumlichkeiten', 'essbereich', 'Essbereich', 'An unserem großen Esstisch mit ergonomischen Kinderstühlen werden die Mahlzeiten gemeinsam eingenommen. Unter den wunderschönen alten Holzbalken schmeckt es gleich doppelt gut.', 5],
+    ['raeumlichkeiten', 'kueche', 'Küche', 'Frisch, ausgewogen und mit Liebe zubereitet: In unserer voll ausgestatteten Küche kochen wir täglich frisch. Durch die offene Gestaltung behalten wir dabei immer den Essbereich im Blick.', 6],
+    ['raeumlichkeiten', 'wickelbereich', 'Wickelbereich', 'Unser Sanitärbereich ist konsequent kindgerecht gestaltet: Wickelplatz mit Treppe zum selbstständigen Hinaufklettern, persönliche Fächer für jedes Kind und Waschbecken in Kinderhöhe — alles mit Verbrühungsschutz.', 7],
+    ['aussenbereich', 'garten', 'Garten', 'Unser großzügiger Außenbereich mit Spielplatz, Sandkasten und Sonnensegel bietet den Kindern viel Platz zum Spielen und Entdecken an der frischen Luft.', 1],
+    ['aussenbereich', 'bollerwagen', 'Bollerwagen / Ausflüge', 'Mit unserem Bollerwagen unternehmen wir regelmäßig Ausflüge in die Umgebung und erkunden die Natur rund um Walddorfhäslach.', 2],
+];
+$stmt = $pdo->prepare("INSERT OR IGNORE INTO alben (seite, schluessel, name, beschreibung, reihenfolge) VALUES (?, ?, ?, ?, ?)");
+foreach ($alben as $a) {
+    $stmt->execute($a);
+}
+
 // Bilder-Zuordnungen
 $bilder = [
-    ['startseite', 'hero', 'Haus.jpg', 'Fachwerkhaus der Entenbach TigeR', 1],
-    ['startseite', 'logo', 'Logo.jpg', 'Logo Entenbach TigeR', 1],
+    ['startseite', 'hero', 'Haus.jpg', 'Fachwerkhaus der EntenbachTigeR', 1],
+    ['startseite', 'logo', 'Logo.jpg', 'Logo EntenbachTigeR', 1],
     ['raeumlichkeiten', 'spielzimmer', 'Raum1.jpg', 'Spielzimmer mit Weltkarte-Teppich', 1],
     ['raeumlichkeiten', 'spielzimmer', 'Raum2.jpg', 'Bewegungs- und Sinnesraum', 2],
     ['raeumlichkeiten', 'bewegungsraum', 'Raum3.jpg', 'Bewegungsraum mit Schaumstoffelementen', 1],

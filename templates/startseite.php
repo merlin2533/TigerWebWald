@@ -1,11 +1,11 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-bild">
-        <img src="/static/images/Haus.jpg" alt="Fachwerkhaus der Entenbach TigeR" loading="eager">
+        <img src="/static/images/Haus.jpg" alt="Fachwerkhaus der EntenbachTigeR" loading="eager">
         <div class="hero-overlay"></div>
     </div>
     <div class="hero-inhalt">
-        <img src="/static/images/Logo.jpg" alt="Entenbach TigeR Logo" class="hero-logo aufdecken">
+        <img src="/static/images/Logo.jpg" alt="EntenbachTigeR Logo" class="hero-logo aufdecken">
         <h1 class="aufdecken"><?= e($inhalte['hero_titel'] ?? 'Willkommen beim EntenbachTigeR') ?></h1>
         <p class="hero-untertitel aufdecken"><?= e($inhalte['hero_untertitel'] ?? 'Kindertagespflege im historischen Fachwerkhaus') ?></p>
         <a href="/kontakt" class="btn btn--primary aufdecken">Jetzt Kennenlernen</a>

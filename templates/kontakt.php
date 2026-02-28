@@ -55,7 +55,7 @@
                         allowfullscreen=""
                         loading="lazy" decoding="async"
                         referrerpolicy="no-referrer-when-downgrade"
-                        title="Standort Entenbach TigeR">
+                        title="Standort EntenbachTigeR">
                     </iframe>
                 </div>
             </div>

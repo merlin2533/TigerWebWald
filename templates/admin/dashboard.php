@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | Entenbach TigeR</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Admin Dashboard | EntenbachTigeR</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body class="admin-body">
     <header class="admin-header">
-        <h1>Entenbach TigeR — Admin</h1>
+        <h1>EntenbachTigeR — Admin</h1>
         <div>
             <a href="/" target="_blank">Website ansehen</a>
             &nbsp;&middot;&nbsp;
@@ -68,6 +65,22 @@
                 <a href="/admin/bilder/aussenbereich" class="admin-link-karte">
                     Außenbereich
                     <span>Bilder verwalten</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Alben / Kategorien verwalten -->
+        <div class="admin-karte">
+            <h2>Alben / Kategorien</h2>
+            <p style="margin-bottom: 20px; color: var(--farbe-text-leicht);">Verwalten Sie die Bilderkategorien (Alben) für jede Seite. Sie können neue Kategorien anlegen, umbenennen oder die Reihenfolge ändern.</p>
+            <div class="admin-link-grid">
+                <a href="/admin/alben/raeumlichkeiten" class="admin-link-karte">
+                    Räumlichkeiten
+                    <span>Alben verwalten</span>
+                </a>
+                <a href="/admin/alben/aussenbereich" class="admin-link-karte">
+                    Außenbereich
+                    <span>Alben verwalten</span>
                 </a>
             </div>
         </div>

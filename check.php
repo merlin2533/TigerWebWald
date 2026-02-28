@@ -5,7 +5,7 @@
  */
 
 header('Content-Type: text/html; charset=utf-8');
-echo '<h1>Entenbach TigeR - Server-Diagnose</h1>';
+echo '<h1>EntenbachTigeR - Server-Diagnose</h1>';
 echo '<pre>';
 
 // PHP-Version

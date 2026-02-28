@@ -10,7 +10,7 @@
         <div class="text-seite aufdecken" style="max-width: 800px;">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
-                Entenbach TigeR<br>
+                EntenbachTigeR<br>
                 Kindertagespflege<br>
                 <?= e($inhalte['adresse'] ?? 'Brühlstraße 2, 72141 Walddorfhäslach') ?>
             </p>

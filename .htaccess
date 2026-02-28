@@ -34,7 +34,26 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
     Header set Referrer-Policy "strict-origin-when-cross-origin"
     Header set X-XSS-Protection "1; mode=block"
     Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com https://www.google.de https://maps.google.com;"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://www.google.com https://www.google.de https://maps.google.com;"
+</IfModule>
+
+# --- WebP Content-Negotiation ---
+# Wenn Browser WebP unterstuetzt und eine WebP-Version existiert, diese ausliefern
+RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{REQUEST_URI} \.(jpe?g|png)$
+RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,L]
+
+# Header fuer Proxy-Caches: Vary by Accept
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpe?g|png)$">
+        Header append Vary Accept
+    </FilesMatch>
+</IfModule>
+
+# WebP MIME-Type
+<IfModule mod_mime.c>
+    AddType image/webp .webp
 </IfModule>
 
 # --- Statische Dateien direkt durchlassen ---
@@ -52,6 +71,7 @@ RewriteRule ^admin/logout$ admin.php?aktion=logout [L,QSA]
 RewriteRule ^admin/inhalte/(.+)$ admin.php?aktion=inhalte&seite=$1 [L,QSA]
 RewriteRule ^admin/bilder/(.+)$ admin.php?aktion=bilder&seite=$1 [L,QSA]
 RewriteRule ^admin/bild/loeschen/(\d+)$ admin.php?aktion=bild_loeschen&bild_id=$1 [L,QSA]
+RewriteRule ^admin/alben/(.+)$ admin.php?aktion=alben&seite=$1 [L,QSA]
 RewriteRule ^admin/team$ admin.php?aktion=team [L,QSA]
 RewriteRule ^admin/passwort$ admin.php?aktion=passwort [L,QSA]
 RewriteRule ^admin/?$ admin.php?aktion=dashboard [L,QSA]

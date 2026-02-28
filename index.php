@@ -1,6 +1,6 @@
 <?php
 /**
- * Entenbach Tiger - Oeffentliche Seiten (Router).
+ * EntenbachTigeR - Oeffentliche Seiten (Router).
  */
 
 // Fehler anzeigen falls Datenbank oder Extensions fehlen
@@ -24,7 +24,7 @@ $basis_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' :
 switch ($seite) {
     case 'startseite':
         $seitentitel = 'Startseite';
-        $meta_beschreibung = 'Entenbach TigeR - Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach. 9 Betreuungsplätze für Kinder unter 3 Jahren.';
+        $meta_beschreibung = 'EntenbachTigeR - Kindertagespflege und U3-Betreuung im historischen Fachwerkhaus in Walddorfhäslach. 9 Plätze, 3 Fachkräfte, liebevolle Kinderbetreuung.';
         $canonical_pfad = '/';
         $inhalte = get_alle_inhalte('startseite');
         $template = 'startseite.php';
@@ -32,7 +32,7 @@ switch ($seite) {
 
     case 'ueber-uns':
         $seitentitel = 'Über uns';
-        $meta_beschreibung = 'Lernen Sie das Team der Entenbach TigeR kennen. Öffnungszeiten, Betreuungsmodelle und unsere pädagogischen Fachkräfte.';
+        $meta_beschreibung = 'Team, Öffnungszeiten und Betreuungsmodelle der EntenbachTigeR Kindertagespflege in Walddorfhäslach. Drei erfahrene Tagespflegepersonen für U3-Kinder.';
         $canonical_pfad = '/ueber-uns';
         $inhalte = get_alle_inhalte('ueber_uns');
         $team = get_team();
@@ -41,28 +41,34 @@ switch ($seite) {
 
     case 'raeumlichkeiten':
         $seitentitel = 'Räumlichkeiten';
-        $meta_beschreibung = 'Bildergalerie der Entenbach TigeR. Spielzimmer, Bewegungsraum, Essbereich und Garten im historischen Alten Notariat.';
+        $meta_beschreibung = 'Räumlichkeiten der EntenbachTigeR Kindertagespflege Walddorfhäslach. Spielzimmer, Bewegungsraum, Schlafraum, Essbereich und Garten im Alten Notariat.';
         $canonical_pfad = '/raeumlichkeiten';
         $bilder_raw = get_bilder('raeumlichkeiten');
-        $kategorien = [];
-        foreach ($bilder_raw as $b) {
-            $kategorien[$b['schluessel']][] = $b;
+        // Alben dynamisch aus DB laden
+        $alben_raw = get_alben('raeumlichkeiten');
+        $kategorie_namen = [];
+        $kategorie_beschreibungen = [];
+        foreach ($alben_raw as $a) {
+            $kategorie_namen[$a['schluessel']] = $a['name'];
+            $kategorie_beschreibungen[$a['schluessel']] = $a['beschreibung'];
         }
-        $kategorie_namen = [
-            'spielzimmer' => 'Spielzimmer',
-            'bewegungsraum' => 'Bewegungsraum',
-            'schlafraum' => 'Schlafraum',
-            'garderobe' => 'Garderobe',
-            'essbereich' => 'Essbereich',
-            'kueche' => 'Küche',
-            'wickelbereich' => 'Wickelbereich',
-        ];
+        // Bilder nach Kategorien gruppieren, Reihenfolge der Alben beibehalten
+        $kategorien = [];
+        $bilder_nach_key = [];
+        foreach ($bilder_raw as $b) {
+            $bilder_nach_key[$b['schluessel']][] = $b;
+        }
+        foreach ($alben_raw as $a) {
+            if (!empty($bilder_nach_key[$a['schluessel']])) {
+                $kategorien[$a['schluessel']] = $bilder_nach_key[$a['schluessel']];
+            }
+        }
         $template = 'raeumlichkeiten.php';
         break;
 
     case 'konzept':
         $seitentitel = 'Pädagogisches Konzept';
-        $meta_beschreibung = 'Pädagogisches Konzept der Entenbach TigeR. Sichere Bindung, Rituale und Selbstständigkeit nach dem Berliner Eingewöhnungsmodell.';
+        $meta_beschreibung = 'Pädagogisches Konzept der EntenbachTigeR Kindertagespflege. Sichere Bindung, Rituale, Selbstständigkeit und sanfte Eingewöhnung nach dem Berliner Modell.';
         $canonical_pfad = '/konzept';
         $inhalte = get_alle_inhalte('konzept');
         $template = 'konzept.php';
@@ -70,7 +76,7 @@ switch ($seite) {
 
     case 'kontakt':
         $seitentitel = 'Kontakt';
-        $meta_beschreibung = 'Kontakt und Besichtigungstermin bei den Entenbach TigeR in Walddorfhäslach. Telefon, E-Mail und Anfahrt.';
+        $meta_beschreibung = 'Kontakt und Besichtigungstermin bei der EntenbachTigeR Kindertagespflege in Walddorfhäslach. Telefon, E-Mail, Adresse und Anfahrt.';
         $canonical_pfad = '/kontakt';
         $inhalte = get_alle_inhalte('kontakt');
         $template = 'kontakt.php';
@@ -78,7 +84,7 @@ switch ($seite) {
 
     case 'impressum':
         $seitentitel = 'Impressum';
-        $meta_beschreibung = 'Impressum der Entenbach TigeR Kindertagespflege in Walddorfhäslach.';
+        $meta_beschreibung = 'Impressum der EntenbachTigeR Kindertagespflege in Walddorfhäslach.';
         $canonical_pfad = '/impressum';
         $inhalte = get_alle_inhalte('kontakt');
         $template = 'impressum.php';
@@ -86,7 +92,7 @@ switch ($seite) {
 
     case 'datenschutz':
         $seitentitel = 'Datenschutz';
-        $meta_beschreibung = 'Datenschutzerklärung der Entenbach TigeR Kindertagespflege.';
+        $meta_beschreibung = 'Datenschutzerklärung der EntenbachTigeR Kindertagespflege.';
         $canonical_pfad = '/datenschutz';
         $inhalte = [];
         $template = 'datenschutz.php';

@@ -37,7 +37,7 @@
             <h3>Verantwortliche Stelle</h3>
             <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
             <p>
-                Entenbach TigeR — Kindertagespflege<br>
+                EntenbachTigeR — Kindertagespflege<br>
                 Verena Schall<br>
                 Brühlstraße 2<br>
                 72141 Walddorfhäslach<br>

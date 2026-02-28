@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bilder: <?= e($seite) ?> | Admin</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body class="admin-body">
@@ -62,23 +59,18 @@
             </p>
             <form method="POST" enctype="multipart/form-data">
                 <?= csrf_feld() ?>
+                <?php $seite_alben = get_alben($seite); ?>
                 <div class="form-gruppe">
                     <label for="schluessel">Kategorie</label>
-                    <?php if ($seite === 'raeumlichkeiten'): ?>
+                    <?php if (!empty($seite_alben)): ?>
                     <select id="schluessel" name="schluessel">
-                        <option value="spielzimmer">Spielzimmer</option>
-                        <option value="bewegungsraum">Bewegungsraum</option>
-                        <option value="schlafraum">Schlafraum</option>
-                        <option value="garderobe">Garderobe</option>
-                        <option value="essbereich">Essbereich</option>
-                        <option value="kueche">Küche</option>
-                        <option value="wickelbereich">Wickelbereich</option>
+                        <?php foreach ($seite_alben as $album): ?>
+                        <option value="<?= e($album['schluessel']) ?>"><?= e($album['name']) ?></option>
+                        <?php endforeach; ?>
                     </select>
-                    <?php elseif ($seite === 'aussenbereich'): ?>
-                    <select id="schluessel" name="schluessel">
-                        <option value="garten">Garten</option>
-                        <option value="bollerwagen">Bollerwagen / Ausflüge</option>
-                    </select>
+                    <p style="margin-top: 4px; font-size: 0.8rem; color: var(--farbe-text-leicht);">
+                        <a href="/admin/alben/<?= e($seite) ?>">Kategorien bearbeiten</a>
+                    </p>
                     <?php else: ?>
                     <input type="text" id="schluessel" name="schluessel" placeholder="z.B. hero, logo" required>
                     <?php endif; ?>

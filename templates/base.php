@@ -4,31 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?= e($meta_beschreibung ?? 'Entenbach TigeR - Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach. Liebevolle U3-Betreuung mit 9 Plätzen.') ?>">
-    <meta name="keywords" content="Kindertagespflege, Walddorfhäslach, U3, Kinderkrippe, Entenbach TigeR, Tagesmutter, Reutlingen">
-    <title><?= e($seitentitel ?? 'Entenbach TigeR') ?> | Kindertagespflege Walddorfhäslach</title>
+    <meta name="description" content="<?= e($meta_beschreibung ?? 'EntenbachTigeR - Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach. Liebevolle U3-Betreuung mit 9 Plätzen.') ?>">
+    <meta name="keywords" content="Kindertagespflege, Walddorfhäslach, U3 Betreuung, Kinderbetreuung, Kinderkrippe, EntenbachTigeR, Tagesmutter, Tagespflege, Reutlingen, Kleinkindbetreuung, Kinderbetreuung Walddorfhäslach, U3 Walddorfhäslach, Kindertagespflege Reutlingen">
+    <title><?= e($seitentitel ?? 'EntenbachTigeR') ?> | Kindertagespflege Walddorfhäslach</title>
 
     <?php if (!empty($canonical_pfad)): ?>
     <link rel="canonical" href="<?= e($basis_url . $canonical_pfad) ?>">
     <?php endif; ?>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="<?= e($seitentitel ?? 'Entenbach TigeR') ?> | Kindertagespflege Walddorfhäslach">
+    <meta property="og:title" content="<?= e($seitentitel ?? 'EntenbachTigeR') ?> | Kindertagespflege Walddorfhäslach">
     <meta property="og:description" content="<?= e($meta_beschreibung ?? 'Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach.') ?>">
     <meta property="og:image" content="<?= e($basis_url ?? '') ?>/static/images/Haus.jpg">
     <meta property="og:url" content="<?= e(($basis_url ?? '') . ($canonical_pfad ?? '/')) ?>">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
-    <meta property="og:site_name" content="Entenbach TigeR">
+    <meta property="og:site_name" content="EntenbachTigeR">
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="/static/images/Logo.jpg">
     <link rel="apple-touch-icon" href="/static/images/Logo.jpg">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Hero-Bild vorladen auf Startseite -->
     <?php if (($aktive_seite ?? '') === 'startseite'): ?>
@@ -48,8 +43,9 @@
     {
         "@context": "https://schema.org",
         "@type": "ChildCare",
-        "name": "Entenbach TigeR",
-        "description": "Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach. 9 Betreuungsplätze für Kinder unter 3 Jahren.",
+        "name": "EntenbachTigeR",
+        "alternateName": ["EntenbachTigeR Kindertagespflege", "Kindertagespflege Walddorfhäslach"],
+        "description": "EntenbachTigeR - Kindertagespflege und U3-Betreuung im historischen Fachwerkhaus in Walddorfhäslach. 9 Betreuungsplätze für Kinder unter 3 Jahren mit 3 qualifizierten Tagespflegepersonen.",
         "url": "<?= e($basis_url ?? '') ?>",
         "telephone": "<?= e(get_inhalt('kontakt', 'telefon', '07127/9266-850')) ?>",
         "email": "<?= e(get_inhalt('kontakt', 'email', 'info@entenbachtiger.de')) ?>",
@@ -60,6 +56,11 @@
             "postalCode": "72141",
             "addressRegion": "Baden-Württemberg",
             "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "48.5827",
+            "longitude": "9.1800"
         },
         "image": "<?= e($basis_url ?? '') ?>/static/images/Haus.jpg",
         "logo": "<?= e($basis_url ?? '') ?>/static/images/Logo.jpg",
@@ -95,7 +96,7 @@
     <header class="site-header" id="site-header">
         <nav class="nav-container">
             <a href="/" class="nav-logo">
-                <img src="/static/images/Logo.jpg" alt="Entenbach TigeR Logo" width="48" height="48">
+                <img src="/static/images/Logo.jpg" alt="EntenbachTigeR Logo" width="48" height="48">
             </a>
 
             <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen">
@@ -138,7 +139,7 @@
         <div class="footer-inhalt">
             <div class="footer-grid">
                 <div class="footer-spalte">
-                    <img src="/static/images/Logo.jpg" alt="Entenbach TigeR" class="footer-logo" loading="lazy" decoding="async">
+                    <img src="/static/images/Logo.jpg" alt="EntenbachTigeR" class="footer-logo" loading="lazy" decoding="async">
                     <p class="footer-claim">Kindertagespflege im<br>historischen Fachwerkhaus</p>
                 </div>
                 <div class="footer-spalte">
@@ -164,7 +165,7 @@
                 </div>
             </div>
             <div class="footer-unten">
-                <p>&copy; <?= date('Y') ?> Entenbach TigeR &mdash; Kindertagespflege Walddorfhäslach</p>
+                <p>&copy; <?= date('Y') ?> EntenbachTigeR &mdash; Kindertagespflege Walddorfhäslach</p>
                 <p class="footer-verein">Angeschlossen an den Tagesmutterverein Reutlingen</p>
                 <p class="footer-legal">
                     <a href="/impressum">Impressum</a> &middot; <a href="/datenschutz">Datenschutz</a>

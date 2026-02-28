@@ -1,7 +1,7 @@
-# Entenbach TigeR - Kindertagespflege
+# EntenbachTigeR - Kindertagespflege
 
 ## Einrichtung
-- Name: Entenbach TigeR
+- Name: EntenbachTigeR
 - Typ: Kindertagespflege (U3-Bereich)
 - Traeger: Angeschlossen an den Tagesmutterverein Reutlingen
 - Plaetze: 9 Betreuungsplaetze fuer Kinder unter 3 Jahren

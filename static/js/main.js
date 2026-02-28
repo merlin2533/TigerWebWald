@@ -1,4 +1,4 @@
-/* Entenbach Tiger - Interaktionen */
+/* EntenbachTigeR - Interaktionen */
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();

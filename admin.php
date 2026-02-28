@@ -1,10 +1,10 @@
 <?php
 /**
- * Entenbach Tiger - Admin-Bereich.
+ * EntenbachTigeR - Admin-Bereich.
  */
 
 error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ini_set('display_errors', '0');
 ini_set('log_errors', '1');
 
 require_once __DIR__ . '/includes/db.php';
@@ -175,6 +175,56 @@ switch ($aktion) {
 
         $team = $db->query('SELECT * FROM team ORDER BY reihenfolge')->fetchAll();
         require __DIR__ . '/templates/admin/team.php';
+        break;
+
+    case 'alben':
+        $seite = $_GET['seite'] ?? '';
+        $db = get_db();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!csrf_pruefen()) {
+                flash('Ungültige Anfrage.', 'fehler');
+            } else {
+                $post_aktion = $_POST['aktion'] ?? '';
+
+                if ($post_aktion === 'hinzufuegen') {
+                    $schluessel = preg_replace('/[^a-z0-9_]/', '', strtolower($_POST['schluessel'] ?? ''));
+                    $name = $_POST['name'] ?? '';
+                    $beschreibung = $_POST['beschreibung'] ?? '';
+                    $reihenfolge = intval($_POST['reihenfolge'] ?? 99);
+
+                    if ($schluessel && $name) {
+                        $stmt = $db->prepare('INSERT OR IGNORE INTO alben (seite, schluessel, name, beschreibung, reihenfolge) VALUES (?, ?, ?, ?, ?)');
+                        $stmt->execute([$seite, $schluessel, $name, $beschreibung, $reihenfolge]);
+                        flash("Album '$name' hinzugefügt!", 'erfolg');
+                    }
+                } elseif ($post_aktion === 'aktualisieren') {
+                    foreach ($_POST as $key => $val) {
+                        if (strpos($key, 'name_') === 0) {
+                            $aid = substr($key, 5);
+                            $stmt = $db->prepare('UPDATE alben SET name=?, beschreibung=?, reihenfolge=? WHERE id=?');
+                            $stmt->execute([
+                                $_POST["name_$aid"] ?? '',
+                                $_POST["beschreibung_$aid"] ?? '',
+                                intval($_POST["reihenfolge_$aid"] ?? 0),
+                                $aid,
+                            ]);
+                        }
+                    }
+                    flash('Alben aktualisiert!', 'erfolg');
+                } elseif ($post_aktion === 'loeschen') {
+                    $album_id = intval($_POST['album_id'] ?? 0);
+                    if ($album_id) {
+                        $stmt = $db->prepare('DELETE FROM alben WHERE id = ?');
+                        $stmt->execute([$album_id]);
+                        flash('Album gelöscht.', 'info');
+                    }
+                }
+            }
+        }
+
+        $alben = get_alben($seite);
+        require __DIR__ . '/templates/admin/alben.php';
         break;
 
     case 'passwort':

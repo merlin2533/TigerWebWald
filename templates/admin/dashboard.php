@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | Entenbach Tiger</title>
+    <title>Admin Dashboard | Entenbach TigeR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 </head>
 <body class="admin-body">
     <header class="admin-header">
-        <h1>Entenbach Tiger — Admin</h1>
+        <h1>Entenbach TigeR — Admin</h1>
         <div>
             <a href="/" target="_blank">Website ansehen</a>
             &nbsp;&middot;&nbsp;

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Entenbach Tiger - Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach. Liebevolle U3-Betreuung mit 9 Plätzen.">
-    <meta name="keywords" content="Kindertagespflege, Walddorfhäslach, U3, Kinderkrippe, Entenbach Tiger, Tagesmutter, Reutlingen">
-    <title><?= e($seitentitel ?? 'Entenbach Tiger') ?> | Kindertagespflege Walddorfhäslach</title>
+    <meta name="description" content="Entenbach TigeR - Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach. Liebevolle U3-Betreuung mit 9 Plätzen.">
+    <meta name="keywords" content="Kindertagespflege, Walddorfhäslach, U3, Kinderkrippe, Entenbach TigeR, Tagesmutter, Reutlingen">
+    <title><?= e($seitentitel ?? 'Entenbach TigeR') ?> | Kindertagespflege Walddorfhäslach</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
     <header class="site-header" id="site-header">
         <nav class="nav-container">
             <a href="/" class="nav-logo">
-                <img src="/static/images/Logo.jpg" alt="Entenbach Tiger Logo" loading="lazy">
+                <img src="/static/images/Logo.jpg" alt="Entenbach TigeR Logo" loading="lazy">
             </a>
 
             <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen">
@@ -62,7 +62,7 @@
         <div class="footer-inhalt">
             <div class="footer-grid">
                 <div class="footer-spalte">
-                    <img src="/static/images/Logo.jpg" alt="Entenbach Tiger" class="footer-logo" loading="lazy">
+                    <img src="/static/images/Logo.jpg" alt="Entenbach TigeR" class="footer-logo" loading="lazy">
                     <p class="footer-claim">Kindertagespflege im<br>historischen Fachwerkhaus</p>
                 </div>
                 <div class="footer-spalte">
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="footer-unten">
-                <p>&copy; 2025 Entenbach Tiger &mdash; Kindertagespflege Walddorfhäslach</p>
+                <p>&copy; 2025 Entenbach TigeR &mdash; Kindertagespflege Walddorfhäslach</p>
                 <p class="footer-verein">Angeschlossen an den Tagesmutterverein Reutlingen</p>
             </div>
         </div>

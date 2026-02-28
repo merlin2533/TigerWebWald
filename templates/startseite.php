@@ -1,12 +1,12 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-bild">
-        <img src="/static/images/Haus.jpg" alt="Fachwerkhaus der Entenbach Tiger" loading="eager">
+        <img src="/static/images/Haus.jpg" alt="Fachwerkhaus der Entenbach TigeR" loading="eager">
         <div class="hero-overlay"></div>
     </div>
     <div class="hero-inhalt">
-        <img src="/static/images/Logo.jpg" alt="Entenbach Tiger Logo" class="hero-logo aufdecken">
-        <h1 class="aufdecken"><?= e($inhalte['hero_titel'] ?? 'Willkommen bei den Entenbach Tigern') ?></h1>
+        <img src="/static/images/Logo.jpg" alt="Entenbach TigeR Logo" class="hero-logo aufdecken">
+        <h1 class="aufdecken"><?= e($inhalte['hero_titel'] ?? 'Willkommen bei den Entenbach TigeRn') ?></h1>
         <p class="hero-untertitel aufdecken"><?= e($inhalte['hero_untertitel'] ?? 'Kindertagespflege im historischen Fachwerkhaus') ?></p>
         <a href="/kontakt" class="btn btn--primary aufdecken">Jetzt Kennenlernen</a>
     </div>
@@ -65,7 +65,7 @@
                 </div>
                 <h3>Sichere Bindung</h3>
                 <p>Vertrauen ist die Grundlage. Durch feste Bezugspersonen und einfühlsame Begleitung geben wir Ihrem Kind die Sicherheit, die es braucht, um mutig die Welt zu entdecken.</p>
-                <a href="/konzept" class="link-pfeil">Mehr erfahren</a>
+                <a href="/ueber-uns#team" class="link-pfeil">Unser Team</a>
             </div>
             <div class="highlight-karte aufdecken">
                 <div class="highlight-icon">
@@ -75,7 +75,7 @@
                 </div>
                 <h3>Verlässlicher Rahmen</h3>
                 <p>Morgenkreis, gemeinsame Mahlzeiten, Freispiel und Ruhezeiten — wiederkehrende Rituale geben kleinen Kindern die Orientierung und Stabilität, die sie brauchen.</p>
-                <a href="/konzept" class="link-pfeil">Mehr erfahren</a>
+                <a href="/raeumlichkeiten" class="link-pfeil">Unsere Räume</a>
             </div>
             <div class="highlight-karte aufdecken">
                 <div class="highlight-icon">
@@ -85,7 +85,7 @@
                 </div>
                 <h3>Selbstständigkeit fördern</h3>
                 <p>Nach Maria Montessori: „Hilf mir, es selbst zu tun." Wir geben Kindern Zeit und Raum, eigene Erfahrungen zu machen — und stärken so ihr Selbstvertrauen nachhaltig.</p>
-                <a href="/konzept" class="link-pfeil">Mehr erfahren</a>
+                <a href="/konzept" class="link-pfeil">Unser Konzept</a>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
-# Entenbach Tiger - Kindertagespflege Website
+# Entenbach TigeR - Kindertagespflege Website
 
-Website für die Kindertagespflege **"Entenbach Tiger"** in Walddorfhäslach.
+Website für die Kindertagespflege **"Entenbach TigeR"** in Walddorfhäslach.
 Die Einrichtung befindet sich im historischen Alten Notariat (Fachwerkhaus) und bietet 9 Betreuungsplätze für Kinder unter 3 Jahren.
 
 ## Technologie

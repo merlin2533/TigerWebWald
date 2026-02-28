@@ -75,16 +75,16 @@ foreach ($team as $t) {
 // Seiteninhalte
 $inhalte = [
     // Startseite
-    ['startseite', 'hero_titel', 'Willkommen bei den Entenbach Tigern', 'text'],
+    ['startseite', 'hero_titel', 'Willkommen bei den Entenbach TigeRn', 'text'],
     ['startseite', 'hero_untertitel', 'Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach', 'text'],
     ['startseite', 'intro_text', 'Im Herzen von Walddorf, im wunderschönen Alten Notariat, bieten wir 9 Betreuungsplätze für Kinder unter 3 Jahren. Unser erfahrenes Team aus drei pädagogischen Fachkräften begleitet Ihr Kind mit Herz, Kompetenz und viel Freude durch den Tag.', 'text'],
     ['startseite', 'cta_text', 'Lernen Sie uns und unsere Räumlichkeiten kennen!', 'text'],
     // Ueber uns
-    ['ueber_uns', 'titel', 'Über die Entenbach Tiger', 'text'],
-    ['ueber_uns', 'text_1', 'Die Entenbach Tiger sind eine Kindertagespflege im U3-Bereich, angeschlossen an den Tagesmutterverein Reutlingen – dabei jedoch komplett eigenständig in unserer pädagogischen Arbeit. Wir betreuen bis zu 9 Kinder in den liebevoll gestalteten Räumlichkeiten im Dachgeschoss des historischen Alten Notariats.', 'text'],
+    ['ueber_uns', 'titel', 'Über die Entenbach TigeR', 'text'],
+    ['ueber_uns', 'text_1', 'Die Entenbach TigeR sind eine Kindertagespflege im U3-Bereich, angeschlossen an den Tagesmutterverein Reutlingen – dabei jedoch komplett eigenständig in unserer pädagogischen Arbeit. Wir betreuen bis zu 9 Kinder in den liebevoll gestalteten Räumlichkeiten im Dachgeschoss des historischen Alten Notariats.', 'text'],
     ['ueber_uns', 'text_2', 'Unser Ziel ist es, jedem Kind eine sichere, geborgene und anregende Umgebung zu bieten, in der es sich in seinem eigenen Tempo entwickeln kann. Mit viel Herz und pädagogischer Kompetenz begleiten wir die Kinder durch ihren Tag.', 'text'],
-    ['ueber_uns', 'oeffnungszeiten_1', 'Modell 1: Montag–Donnerstag 07:30–15:00 Uhr, Freitag 07:30–12:30 Uhr (5 Plätze)', 'text'],
-    ['ueber_uns', 'oeffnungszeiten_2', 'Modell 2: Montag–Freitag 07:30–12:30 Uhr (4 Plätze)', 'text'],
+    ['ueber_uns', 'oeffnungszeiten_1', 'Modell 1: Montag–Donnerstag 07:30–15:00 Uhr, Freitag 08:00–12:30 Uhr (5 Plätze)', 'text'],
+    ['ueber_uns', 'oeffnungszeiten_2', 'Modell 2: Montag–Donnerstag 07:30–12:30 Uhr, Freitag 08:00–12:30 Uhr (4 Plätze)', 'text'],
     // Konzept
     ['konzept', 'titel', 'Unser Pädagogisches Konzept', 'text'],
     ['konzept', 'intro', 'Unsere pädagogische Arbeit orientiert sich an drei zentralen Zielen, die die Grundlage für die ganzheitliche Entwicklung Ihres Kindes bilden.', 'text'],
@@ -110,14 +110,14 @@ foreach ($inhalte as $i) {
 
 // Bilder-Zuordnungen
 $bilder = [
-    ['startseite', 'hero', 'Haus.jpg', 'Fachwerkhaus der Entenbach Tiger', 1],
-    ['startseite', 'logo', 'Logo.jpg', 'Logo Entenbach Tiger', 1],
+    ['startseite', 'hero', 'Haus.jpg', 'Fachwerkhaus der Entenbach TigeR', 1],
+    ['startseite', 'logo', 'Logo.jpg', 'Logo Entenbach TigeR', 1],
     ['raeumlichkeiten', 'spielzimmer', 'Raum1.jpg', 'Spielzimmer mit Weltkarte-Teppich', 1],
     ['raeumlichkeiten', 'spielzimmer', 'Raum2.jpg', 'Bewegungs- und Sinnesraum', 2],
     ['raeumlichkeiten', 'bewegungsraum', 'Raum3.jpg', 'Bewegungsraum mit Schaumstoffelementen', 1],
     ['raeumlichkeiten', 'bewegungsraum', 'Raum4.jpg', 'Bewegungslandschaft', 2],
-    ['raeumlichkeiten', 'schlafraum', 'Raum5.jpg', 'Schlafraum', 1],
-    ['raeumlichkeiten', 'garderobe', 'Raum6.jpg', 'Garderobe', 1],
+    ['raeumlichkeiten', 'garderobe', 'Raum5.jpg', 'Garderobe', 1],
+    ['raeumlichkeiten', 'schlafraum', 'Raum6.jpg', 'Schlafraum', 1],
     ['raeumlichkeiten', 'essbereich', 'Essbereich.jpg', 'Essbereich mit Kinderstühlen', 1],
     ['raeumlichkeiten', 'essbereich', 'Essbereich2.jpg', 'Essbereich', 2],
     ['raeumlichkeiten', 'kueche', 'Küche.jpg', 'Moderne Küche mit Holzbalken', 1],

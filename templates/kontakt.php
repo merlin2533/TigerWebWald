@@ -55,7 +55,7 @@
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                        title="Standort Entenbach Tiger">
+                        title="Standort Entenbach TigeR">
                     </iframe>
                 </div>
             </div>

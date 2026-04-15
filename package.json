@@ -1,0 +1,9 @@
+{
+  "name": "entenbachtiger-website",
+  "version": "1.0.0",
+  "description": "EntenbachTigeR - Website fuer die Kindertagesstaette im historischen Fachwerkhaus",
+  "private": true,
+  "scripts": {
+    "start": "echo 'PHP-Projekt - kein Node.js-Server erforderlich'"
+  }
+}

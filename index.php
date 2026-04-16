@@ -126,6 +126,12 @@ switch ($seite) {
 
 $aktive_seite = $seite;
 
+// Breadcrumb-Daten fuer JSON-LD
+$breadcrumbs = [['name' => 'Start', 'pfad' => '/']];
+if ($seite !== 'startseite' && $seite !== '404') {
+    $breadcrumbs[] = ['name' => $seitentitel, 'pfad' => $canonical_pfad];
+}
+
 // Base-Template mit eingebettetem Seiteninhalt rendern
 ob_start();
 require __DIR__ . '/templates/' . $template;

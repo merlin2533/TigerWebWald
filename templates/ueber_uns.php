@@ -15,7 +15,7 @@
                 <p><?= e($inhalte['text_2'] ?? '') ?></p>
             </div>
             <div class="ueber-bild aufdecken">
-                <img src="/static/images/Haus.jpg" alt="Altes Notariat in Walddorfhäslach" loading="lazy" decoding="async">
+                <img src="/static/images/Haus.jpg" alt="Historisches Altes Notariat in Walddorfhäslach - Standort der EntenbachTigeR Kindertagespflege" width="800" height="600" loading="lazy" decoding="async">
             </div>
         </div>
     </div>

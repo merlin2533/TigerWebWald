@@ -1,11 +1,11 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-bild">
-        <img src="/static/images/Haus.jpg" alt="Fachwerkhaus der EntenbachTigeR" loading="eager">
+        <img src="/static/images/Haus.jpg" alt="Fachwerkhaus der EntenbachTigeR Kindertagespflege in Walddorfhäslach" width="1200" height="800" loading="eager" fetchpriority="high">
         <div class="hero-overlay"></div>
     </div>
     <div class="hero-inhalt">
-        <img src="/static/images/Logo.jpg" alt="EntenbachTigeR Logo" class="hero-logo aufdecken">
+        <img src="/static/images/Logo.jpg" alt="EntenbachTigeR Logo - Kindertagespflege Walddorfhäslach" class="hero-logo aufdecken" width="180" height="180">
         <h1 class="aufdecken"><?= e($inhalte['hero_titel'] ?? 'Willkommen beim EntenbachTigeR') ?></h1>
         <p class="hero-untertitel aufdecken"><?= e($inhalte['hero_untertitel'] ?? 'Kindertagespflege im historischen Fachwerkhaus') ?></p>
         <a href="/kontakt" class="btn btn--primary aufdecken">Jetzt Kennenlernen</a>
@@ -44,9 +44,9 @@
             </div>
             <div class="intro-bilder aufdecken">
                 <div class="bild-collage">
-                    <img src="/static/images/Raum1.jpg" alt="Spielzimmer" class="collage-1" loading="lazy" decoding="async">
-                    <img src="/static/images/Essbereich.jpg" alt="Essbereich" class="collage-2" loading="lazy" decoding="async">
-                    <img src="/static/images/Aueßen1.jpg" alt="Außenbereich" class="collage-3" loading="lazy" decoding="async">
+                    <img src="/static/images/Raum1.jpg" alt="Spielzimmer der EntenbachTigeR Kindertagespflege mit Kinderküche und Bauecke" class="collage-1" width="600" height="400" loading="lazy" decoding="async">
+                    <img src="/static/images/Essbereich.jpg" alt="Essbereich mit kindgerechten Stühlen unter historischen Holzbalken" class="collage-2" width="600" height="400" loading="lazy" decoding="async">
+                    <img src="/static/images/Aueßen1.jpg" alt="Eingezäunter Außenbereich und Garten der Kindertagespflege" class="collage-3" width="600" height="400" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>

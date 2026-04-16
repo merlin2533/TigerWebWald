@@ -1,9 +1,43 @@
+# EntenbachTigeR - Kindertagespflege Walddorfhäslach
+# https://entenbachtiger.de
+
 User-agent: *
 Allow: /
+Allow: /ueber-uns
+Allow: /raeumlichkeiten
+Allow: /konzept
+Allow: /kontakt
+Allow: /faq
+Allow: /impressum
+Allow: /datenschutz
+
+# Admin-Bereich und interne Dateien blockieren
 Disallow: /admin/
 Disallow: /admin.php
 Disallow: /tiger.db
 Disallow: /check.php
 Disallow: /init_db.php
+Disallow: /includes/
+Disallow: /templates/
 
+# Statische Assets erlauben (fuer Rendering)
+Allow: /static/css/
+Allow: /static/js/
+Allow: /static/images/
+Allow: /static/fonts/
+
+# Crawl-Delay fuer respektvolles Crawling
+Crawl-delay: 1
+
+# Sitemap
 Sitemap: /sitemap.xml
+
+# Google-spezifisch
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

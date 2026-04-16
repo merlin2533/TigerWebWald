@@ -1,0 +1,20 @@
+{
+    "name": "EntenbachTigeR - Kindertagespflege Walddorfhäslach",
+    "short_name": "EntenbachTigeR",
+    "description": "Kindertagespflege im historischen Fachwerkhaus in Walddorfhäslach. 9 Betreuungsplätze für Kinder unter 3 Jahren.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FDFAF4",
+    "theme_color": "#1A3C4D",
+    "lang": "de",
+    "icons": [
+        {
+            "src": "/static/images/Logo.jpg",
+            "sizes": "any",
+            "type": "image/jpeg",
+            "purpose": "any"
+        }
+    ],
+    "categories": ["education"],
+    "orientation": "portrait-primary"
+}

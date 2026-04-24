@@ -47,7 +47,7 @@
                 <p><?= e($inhalte['oeffnungszeiten_2'] ?? 'Montag–Donnerstag 07:30–12:30 Uhr, Freitag 08:00–12:30 Uhr') ?></p>
             </div>
         </div>
-        <p class="aufdecken text-klein">Die betreuungsfreie Zeit umfasst 30 Urlaubstage pro Jahr. Die Urlaubsplanung wird spätestens bis zum 31.12. des Vorjahres bekannt gegeben.</p>
+        <p class="aufdecken text-klein">Die betreuungsfreie Zeit umfasst 30 Schließtage pro Jahr. Die Schließtage werden spätestens bis zum 31.12. des Vorjahres bekannt gegeben.</p>
     </div>
 </section>
 

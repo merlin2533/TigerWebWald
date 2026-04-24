@@ -84,7 +84,7 @@
                     </svg>
                 </div>
                 <h3>Selbstständigkeit fördern</h3>
-                <p>Nach Maria Montessori: „Hilf mir, es selbst zu tun." Wir geben Kindern Zeit und Raum, eigene Erfahrungen zu machen — und stärken so ihr Selbstvertrauen nachhaltig.</p>
+                <p>Selbstständigkeit im Alltag ist uns ein wichtiges pädagogisches Ziel. Wir geben Kindern Zeit und Raum, eigene Erfahrungen zu machen — und stärken so ihr Selbstvertrauen nachhaltig.</p>
                 <a href="/konzept" class="link-pfeil">Unser Konzept</a>
             </div>
         </div>

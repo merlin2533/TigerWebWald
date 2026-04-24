@@ -127,14 +127,13 @@
                 <div class="tag-zeit">11:30 – 12:15</div>
                 <div class="tag-inhalt">
                     <h4>Mittagessen</h4>
-                    <p>Täglich frisch gekocht: Ausgewogene Mahlzeiten, die schmecken. Die Kinder helfen beim Tischdecken.</p>
+                    <p>Täglich frisch gekocht: Ausgewogene Mahlzeiten, die schmecken.</p>
                 </div>
             </div>
             <div class="tag-eintrag">
                 <div class="tag-zeit">12:45 – 14:00</div>
                 <div class="tag-inhalt">
                     <h4>Mittagsruhe</h4>
-                    <p>Jedes Kind hat seinen eigenen Schlafplatz. Sanftes Licht und leise Musik helfen beim Einschlafen.</p>
                 </div>
             </div>
             <div class="tag-eintrag">

@@ -194,7 +194,7 @@
                     <p>Unser pädagogisches Konzept baut auf drei Säulen auf:</p>
                     <ul>
                         <li><strong>Sichere Bindung:</strong> Feste Bezugspersonen und einfühlsame Begleitung als Grundlage für Vertrauen und Wohlbefinden.</li>
-                        <li><strong>Selbstständigkeit fördern:</strong> Inspiriert von Maria Montessori — „Hilf mir, es selbst zu tun." Wir geben Kindern Raum für eigene Erfahrungen.</li>
+                        <li><strong>Selbstständigkeit fördern:</strong> Selbstständigkeit im Alltag ist uns ein wichtiges pädagogisches Ziel — wir geben Kindern Raum für eigene Erfahrungen.</li>
                         <li><strong>Rituale und Struktur:</strong> Wiederkehrende Abläufe geben Orientierung und Sicherheit im Alltag.</li>
                     </ul>
                     <p>Erfahren Sie mehr auf unserer Seite <a href="/konzept">Pädagogisches Konzept</a>.</p>

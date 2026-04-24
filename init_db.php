@@ -106,7 +106,7 @@ $inhalte = [
     ['konzept', 'struktur_titel', 'Rituale & Strukturen', 'text'],
     ['konzept', 'struktur_text', 'Ein strukturierter Tagesablauf mit wiederkehrenden Ritualen gibt Orientierung und Sicherheit. Feste Bestandteile des Tages sind gemeinsame Mahlzeiten, der Kinderkreis, Freispielphasen sowie Ruhe- und Schlafzeiten. Zuverlässige Strukturen unterstützen die emotionale Stabilität.', 'text'],
     ['konzept', 'selbststaendigkeit_titel', 'Selbstständigkeit', 'text'],
-    ['konzept', 'selbststaendigkeit_text', 'Wir ermutigen die Kinder, Dinge eigenständig auszuprobieren und kleine Aufgaben selbst zu bewältigen. Selbstständigkeit im Alltag ist uns ein wichtiges pädagogisches Ziel — wir begleiten die Kinder unterstützend, ohne ihnen Aufgaben abzunehmen.', 'text'],
+    ['konzept', 'selbststaendigkeit_text', 'Uns ist es wichtig, jedes Kind individuell zu fördern und in seiner Entwicklung zu unterstützen. Wir begleiten die Kinder im Alltag und beziehen sie mit ein – so können sie Dinge eigenständig ausprobieren und kleine Aufgaben selbst bewältigen.', 'text'],
     ['konzept', 'eingewoehnung_titel', 'Sanfte Eingewöhnung', 'text'],
     ['konzept', 'eingewoehnung_text', 'Wir orientieren uns am Berliner Eingewöhnungsmodell. In der Regel dauert die Eingewöhnung zwei bis vier Wochen. Da jedes Kind individuell reagiert, kann dieser Zeitraum kürzer oder länger sein. Der Betreuungsvertrag wird erst nach erfolgreicher Eingewöhnung geschlossen.', 'text'],
     // Kontakt

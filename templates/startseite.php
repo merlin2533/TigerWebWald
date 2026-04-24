@@ -84,7 +84,7 @@
                     </svg>
                 </div>
                 <h3>Selbstständigkeit fördern</h3>
-                <p>Selbstständigkeit im Alltag ist uns ein wichtiges pädagogisches Ziel. Wir geben Kindern Zeit und Raum, eigene Erfahrungen zu machen — und stärken so ihr Selbstvertrauen nachhaltig.</p>
+                <p>Wir fördern jedes Kind individuell und begleiten es in seiner Entwicklung. Im Alltag beziehen wir die Kinder mit ein und geben ihnen Raum für eigene Erfahrungen.</p>
                 <a href="/konzept" class="link-pfeil">Unser Konzept</a>
             </div>
         </div>

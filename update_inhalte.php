@@ -22,7 +22,7 @@ $updates = [
     [
         'konzept',
         'selbststaendigkeit_text',
-        'Wir ermutigen die Kinder, Dinge eigenständig auszuprobieren und kleine Aufgaben selbst zu bewältigen. Selbstständigkeit im Alltag ist uns ein wichtiges pädagogisches Ziel — wir begleiten die Kinder unterstützend, ohne ihnen Aufgaben abzunehmen.',
+        'Uns ist es wichtig, jedes Kind individuell zu fördern und in seiner Entwicklung zu unterstützen. Wir begleiten die Kinder im Alltag und beziehen sie mit ein – so können sie Dinge eigenständig ausprobieren und kleine Aufgaben selbst bewältigen.',
     ],
 ];
 
